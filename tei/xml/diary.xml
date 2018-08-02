@@ -52,16 +52,17 @@
          <surface>
             <graphic
                url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140440/full/full/0/default.jpg"
-            />
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p1"/>
          </surface>
          <surface>
             <graphic
                url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140441/full/full/0/default.jpg"
-            />
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p2"/>
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p3"/>
             <zone xml:id="zone_x4c_dnc_r2b" lry="564" lrx="1408" uly="528" ulx="970"/>
             <zone xml:id="zone_omg_2nc_r2b" lry="628" lrx="1438" uly="566" ulx="971"/>
             <zone xml:id="zone_o3w_2nc_r2b" lry="797" lrx="1443" uly="629" ulx="972"/>
@@ -78,13 +79,15 @@
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140443/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140443/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p4"/>
             <zone xml:id="zone_ozn_5nc_r2b" lry="780" lrx="1982" uly="528" ulx="1446"/>
             <zone xml:id="zone_rly_5nc_r2b" lry="1016" lrx="1974" uly="782" ulx="1446"/>
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p5"/>
             <zone xml:id="zone_xc3_xnc_r2b" lry="776" lrx="1448" uly="536" ulx="920"/>
             <zone xml:id="zone_apt_xnc_r2b" lry="1016" lrx="1448" uly="776" ulx="920"/>
             <zone xml:id="zone_rm2_ync_r2b" lry="1260" lrx="1450" uly="1016" ulx="924"/>
@@ -94,7 +97,8 @@
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p6"/>
             <zone xml:id="zone_o4m_3mc_r2b" lry="791" lrx="1425" uly="540" ulx="914"/>
             <zone xml:id="zone_rnr_kmc_r2b" lry="1022" lrx="1440" uly="792" ulx="913"/>
             <zone xml:id="zone_f43_mmc_r2b" lry="1268" lrx="1444" uly="1027" ulx="913"/>
@@ -105,7 +109,8 @@
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p7"/>
             <zone xml:id="zone_vcy_b4c_r2b" lry="780" lrx="1445" uly="535" ulx="928"/>
             <zone xml:id="zone_ct3_c4c_r2b" lry="1020" lrx="1445" uly="783" ulx="931"/>
             <zone xml:id="zone_dsx_c4c_r2b" lry="1275" lrx="1445" uly="1023" ulx="932"/>
@@ -116,7 +121,8 @@
          </surface>
          <surface>
             <graphic
-               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140447/full/full/0/default.jpg"/>
+               url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140447/full/full/0/default.jpg"
+               n="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/112740/canvas/p8"/>
             <zone xml:id="zone_h1k_k4c_r2b" lry="778" lrx="1446" uly="538" ulx="920"/>
             <zone xml:id="zone_dsx_k4c_r2b" lry="1026" lrx="1446" uly="778" ulx="920"/>
          </surface>
