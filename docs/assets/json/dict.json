@@ -1,0 +1,101 @@
+{
+	"全文検索": {
+		"en": "Keyword Search"
+	},
+	"検索": {
+		"en": "Search"
+	},
+	"検索結果": {
+		"en": "Search Result"
+	},
+	"詳細条件を表示": {
+		"en": "Expand"
+	},
+	"詳細条件を隠す": {
+		"en": "Shrink"
+	},
+	"該当する資料は見つかりませんでした。":{
+		"en": "The document which corresponds was not found."
+	},
+	"表示件数": {
+		"en":"per page"
+	},
+	"表示順": {
+		"en":"sort"
+	},
+	"閲覧": {
+		"en":"Browse"
+	},
+	"並替": {
+		"en":"Apply"
+	},
+	"メタデータ": {
+		"en":"Metadata"
+	},
+	"画像データ": {
+		"en":"Image"
+	},
+	"表題": {
+		"en":"Title"
+	},
+	"前の画面へ戻る": {
+		"en":"Back to previous screen"
+	},
+	"艦名": {
+		"en":"Name"
+	},
+	"艦種": {
+		"en":"Class and Type"
+	},
+	"起工日": {
+		"en":"Laid down"
+	},
+	"進水日": {
+		"en":"Launched"
+	},
+	"就役日": {
+		"en":"Completed"
+	},
+	"竣工日": {
+		"en":"Commissioned"
+	},
+	"タイトル": {
+		"en":"Title"
+	},
+	"作成年月日": {
+		"en":"Date"
+	},
+	"キーワード": {
+		"en":"Subject"
+	},
+	"年": {
+		"en":"Year"
+	},
+	"戦艦": {
+		"en":"Battleship"
+	},
+	"巡洋艦": {
+		"en":"Cruiser"
+	},
+	"航空母艦": {
+		"en":"Aircraft_carrier"
+	},
+	"機雷敷設艦": {
+		"en":"Minelayer"
+	},
+	"軍艦史（起工から竣工まで）": {
+		"en":"From Construction to Completion"
+	},
+	"階層": {
+		"en":"Tree"
+	},
+	"平賀譲デジタルアーカイブ": {
+		"en":"Yuzuru Hiraga Digital Archive"
+	},
+	"開始": {
+		"en":"Start"
+	},
+	"間隔": {
+		"en":"Interval"
+	}
+}
