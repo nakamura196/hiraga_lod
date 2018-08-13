@@ -289,7 +289,7 @@
           var selectedUri = data.selected[0];
           var label = data.node.text;
           $("#label").val(label);
-          $("#link").attr("href", "./ship_detail.html?resourceUri="+selectedUri);
+          $("#link").attr("href", "./detail.html?resourceUri="+selectedUri);
 
         });
 
@@ -552,7 +552,7 @@ function toggle(d) {
 //Tree選択時の処理
 function selectByTree(data) {
   $("#label").val(data.name);
-  $("#link").attr("href", "./ship_detail.html?resourceUri="+data.uri);
+  $("#link").attr("href", "./detail.html?resourceUri="+data.uri);
 }
 </script>
 
