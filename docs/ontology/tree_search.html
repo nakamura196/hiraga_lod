@@ -10,14 +10,16 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet"
+  href="../assets/thirdparty/jstree/themes/default/style.min.css" />
 
   <title>LOD Applications</title>
   <style>
-    #wrap {
-        width: 100%;
-        overflow: auto;
-        height: 600px;
-    }
+  #wrap {
+    width: 100%;
+    overflow: auto;
+    height: 600px;
+  }
 </style>
 
 </head>
@@ -29,57 +31,56 @@
 
   </nav>
 
-  <br/>
-  <br/>
+  <div class="container-fluid mt-5">
 
-<div class="row">
-    <div class="col col-md-4">
+    <div class="row">
+      <div class="col col-md-4">
 
-        <div class="panel panel-default">
-            <div class="panel-heading"><span class="trn">階層</span></div>
-            <div class="panel-body" id="wrap">
-                <div id="frmt" class="demo">
-                    <p>Loading ...</p>
-                </div>
+        <div class="card">
+          <div class="card-header trn">階層</div>
+          <div class="card-body" id="wrap">
+            <div id="frmt" class="demo">
+              <p>Loading ...</p>
             </div>
+          </div>
         </div>
 
 
-    </div>
-    <div class="col col-md-8">
+      </div>
+      <div class="col col-md-8">
 
-        <div class="panel panel-default" id="resultDiv">
-            <div class="panel-heading trn">検索結果</div>
-            <div class="panel-body">
-							<p><b class="trn">キーワード</b>: <span  id="badges"></span></p>
-							<table class="table table-striped table-hover" id="table" style="word-break: break-all;">
-								<thead id="thead">
-									<tr>
-										<th></th>
-										<th></th>
-										<th class="trn">タイトル</th>
-										<th class="trn">作成年月日</th>
-										<th class="trn">キーワード</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody id="resourceListBody">
-								</tbody>
-							</table>
-            </div>
+        <div class="card" id="resultDiv">
+          <div class="card-header trn">検索結果</div>
+          <div class="card-body">
+            <p><b class="trn">キーワード</b>: <span  id="badges"></span></p>
+            <table class="table table-striped table-hover" id="table" style="word-break: break-all;">
+              <thead id="thead">
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th class="trn">タイトル</th>
+                  <th class="trn">作成年月日</th>
+                  <th class="trn">キーワード</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="resourceListBody">
+              </tbody>
+            </table>
+          </div>
         </div>
 
+      </div>
+
     </div>
-</div>
 
-<br/>
-<br/>
+    <hr class="my-5"/>
 
-<hr>
+  </div><!-- container -->
 
-<footer class="container">
-  <p><br/><img src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" />&nbsp;&nbsp;Satoru Nakamura<br/><br/></p>
-</footer>
+  <footer class="container">
+    <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
+  </footer>
 
 </body>
 
@@ -89,12 +90,12 @@ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="assets/js/common.js"></script>
+<script type="text/javascript" src="../assets/js/common.js"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
 <script
-src="assets/thirdparty/jstree/jstree.min.js"></script>
+src="../assets/thirdparty/jstree/jstree.min.js"></script>
 
 <script>
 
@@ -108,7 +109,7 @@ for(i=0; url[i]; i++) {
 
 var resourceUri;
 if(arg["resourceUri"]){
-resourceUri = arg["resourceUri"];
+  resourceUri = arg["resourceUri"];
 } else {
   resourceUri = "http://dbpedia.org/resource/Warship";
 }
@@ -120,456 +121,445 @@ var data2 = new Array();
 
 var en_flg = false;
 if(location.href.indexOf("/en/") != -1){
-	en_flg = true;
+  en_flg = true;
 }
 
-    var paramObj;
+var paramObj;
 
-    $(document).ready(function(){
+$(document).ready(function(){
 
-			if(en_flg){
-				$.getJSON(
-					"<?php echo get_stylesheet_directory_uri(); ?>/myassets/json/dict.json", //リクエストURL
-					null,       //送信データ
-					function(data2, status) {
-						var translator = $('body').translate({lang: "en", t: data2}); //use English
-					}
-				);
-			}
+  if(en_flg){
+    $.getJSON(
+      "<?php echo get_stylesheet_directory_uri(); ?>/myassets/json/dict.json", //リクエストURL
+      null,       //送信データ
+      function(data2, status) {
+        var translator = $('body').translate({lang: "en", t: data2}); //use English
+      }
+    );
+  }
 
-				getResourceList();
+  getResourceList();
 
+});
 
-				/*
-        if(len > 0){
-            setParamObj();
-            showPages();
+function getResourceList() {
+
+  //var query =  " define input:inference 'test2' ";
+  var query =  "";
+
+  var resourceLabel;
+
+  query += getPrefixes();
+
+  query += " select distinct * ";
+  query += " where { ";
+
+  query += " { ";
+  query += " ?s rdfs:label ?label . ?s rdf:type ?o . filter (?o = <"+resourceUri+">  ) . ?o rdfs:label ?oLabel . ";
+  query += " } UNION { ";
+  query += " ?s rdfs:label ?label . filter ( ?s = <"+resourceUri+"> ) . ?s rdf:type ?o . ?s rdfs:label ?oLabel . ";//クラスを除去
+  query += " } ";
+
+  if(en_flg){
+    query += " filter(LANG(?label) = 'en') ";
+    query += " filter(LANG(?oLabel) = 'en') ";
+  } else {
+    query += " filter(LANG(?label) = 'ja') ";
+    query += " filter(LANG(?oLabel) = 'ja') ";
+  }
+
+  query += " optional { ";
+  query += " ?res dc:subject ?s . ";
+  query += " ?res dcterms:title ?title . ";
+  query += " ?res dcterms:date ?date . ";
+  query += " ?res foaf:thumbnail ?thumbnail . ";
+  query += " } ";
+  query += " } ";
+
+  $.ajax({
+    type : "POST",
+    url : endpoint,
+    data : {
+      query : query,
+      format : "json"
+    },
+    success : function(data) {
+
+      var result = data.results.bindings;
+
+      var result2 = new Object();
+
+      //var badges = new Array();
+      var badges = new Object();
+
+      for(var i = 0 ; i < result.length; i++){
+        var obj = result[i];
+
+        if(i == 0) {
+          resourceLabel = obj.oLabel.value;
         }
-				*/
-    });
 
-		function getResourceList() {
+        if(obj.res){
+          var res = obj.res.value;
 
-			//var query =  " define input:inference 'test2' ";
-      var query =  "";
+          if(!result2[res]){
+            result2[res] = obj;
+            obj.keyword = new Object();
+          }
 
-			var resourceLabel;
+          result2[res].keyword[obj.s.value] = obj.label.value;
 
-			query += getPrefixes();
 
-			query += " select distinct * ";
-			query += " where { ";
+        }
 
-			query += " { ";
-			query += " ?s rdfs:label ?label . ?s rdf:type ?o . filter (?o = <"+resourceUri+">  ) . ?o rdfs:label ?oLabel . ";
-			query += " } UNION { ";
-			query += " ?s rdfs:label ?label . filter ( ?s = <"+resourceUri+"> ) . ?s rdf:type ?o . ?s rdfs:label ?oLabel . ";//クラスを除去
-			query += " } ";
+      }
 
-			if(en_flg){
-				query += " filter(LANG(?label) = 'en') ";
-				query += " filter(LANG(?oLabel) = 'en') ";
-			} else {
-				query += " filter(LANG(?label) = 'ja') ";
-				query += " filter(LANG(?oLabel) = 'ja') ";
-			}
+      var main = $("#resourceList");
 
-			query += " optional { ";
-			query += " ?res dc:subject ?s . ";
-			query += " ?res dcterms:title ?title . ";
-			query += " ?res dcterms:date ?date . ";
-			query += " ?res foaf:thumbnail ?thumbnail . ";
-			query += " } ";
-			query += " } ";
+      for(var key in result2){
 
-			$.ajax({
-				type : "POST",
-				url : endpoint,
-				data : {
-					query : query,
-					format : "json"
-				},
-				success : function(data) {
+        var obj = result2[key];
 
-					var result = data.results.bindings;
+        var tbody = $("#resourceListBody");
+        var tr = $("<tr>");
+        tbody.append(tr);
 
-					var result2 = new Object();
+        var td = $("<td>");
+        tr.append(td);
 
-					//var badges = new Array();
-					var badges = new Object();
+        td = $("<td>");
+        tr.append(td);
+        var img = $("<img>");
+        td.append(img);
+        img.attr("src", obj.thumbnail.value);
+        img.attr("class", "img-thumbnail");
+        img.attr("width", "150px");
 
-					for(var i = 0 ; i < result.length; i++){
-						var obj = result[i];
+        td = $("<td>");
+        tr.append(td);
+        td.append(obj.title.value);
 
-						if(i == 0) {
-							resourceLabel = obj.oLabel.value;
-						}
+        td = $("<td>");
+        tr.append(td);
+        td.append(obj.date.value);
 
-						if(obj.res){
-							var res = obj.res.value;
+        td = $("<td>");
+        tr.append(td);
 
-							if(!result2[res]){
-								result2[res] = obj;
-								obj.keyword = new Object();
-							}
+        var keyword_array = obj.keyword;
 
-							result2[res].keyword[obj.s.value] = obj.label.value;
+        //var ul = $("<ul>");
+        //td.append(ul);
 
+        for(var uri in keyword_array){
+          var label = keyword_array[uri];
 
-						}
+          var a = $("<a>");
+          td.append(a);
+          a.attr("href", "./tree_search.html?resourceUri="+uri);
+          a.append(label);
 
-					}
+          td.append("<br/>");
 
-					var main = $("#resourceList");
+          badges[uri] = label;
 
-					for(var key in result2){
+        }
 
-						var obj = result2[key];
 
-						var tbody = $("#resourceListBody");
-						var tr = $("<tr>");
-						tbody.append(tr);
+        td = $("<td>");
+        tr.append(td);
 
-						var td = $("<td>");
-						tr.append(td);
+        var a = $("<a>");
+        td.append(a);
 
-						td = $("<td>");
-						tr.append(td);
-						var img = $("<img>");
-						td.append(img);
-						img.attr("src", obj.thumbnail.value);
-						img.attr("class", "img-thumbnail");
-		        img.attr("width", "150px");
+        var link = obj.res.value;
+        link = link.replace("http://apps.is.k.u-tokyo.ac.jp/hiraga/", "http://gazo.dl.itc.u-tokyo.ac.jp/hiraga2/");
 
-						td = $("<td>");
-						tr.append(td);
-						td.append(obj.title.value);
+        a.attr("href", link);
+        a.attr("target", "_blank");
+        a.attr("class", "btn btn-primary");
+        if(en_flg){
+          a.append("View");
+        } else {
+          a.append("詳細");
+        }
+        a.append("&nbsp;&raquo;")
+      }
 
-						td = $("<td>");
-						tr.append(td);
-						td.append(obj.date.value);
+      // DataTable
+      var table = $('#table').DataTable({
+        "iDisplayLength" : 10,
+        //"order" : [ [ 4, "asc" ] ],
 
-						td = $("<td>");
-						tr.append(td);
-
-						var keyword_array = obj.keyword;
-
-						//var ul = $("<ul>");
-						//td.append(ul);
-
-		        for(var uri in keyword_array){
-		          var label = keyword_array[uri];
-
-							var a = $("<a>");
-							td.append(a);
-							a.attr("href", "./tree_search.html?resourceUri="+uri);
-							a.append(label);
-
-							td.append("<br/>");
-
-							badges[uri] = label;
-
-		        }
-
-
-						td = $("<td>");
-						tr.append(td);
-
-						var a = $("<a>");
-						td.append(a);
-
-						var link = obj.res.value;
-		        link = link.replace("http://apps.is.k.u-tokyo.ac.jp/hiraga/", "http://gazo.dl.itc.u-tokyo.ac.jp/hiraga2/");
-
-						a.attr("href", link);
-						a.attr("target", "_blank");
-						a.attr("class", "btn btn-primary");
-						if(en_flg){
-							a.append("View");
-						} else {
-							a.append("詳細");
-						}
-						a.append("&nbsp;&raquo;")
-					}
-
-					// DataTable
-					var table = $('#table').DataTable({
-						"iDisplayLength" : 10,
-						//"order" : [ [ 4, "asc" ] ],
-
-						"columnDefs" : [ {
-							"width" : "20%",
-							"targets" : 1
-						}, {
-							"width" : "20%",
-							"targets" : 2
-						}, {
-							"width" : "20%",
-							"targets" : 3
-						} ]
-
-					});
-
-					table.on('order.dt search.dt', function() {
-						table.column(0, {
-							search : 'applied',
-							order : 'applied'
-						}).nodes().each(function(cell, i) {
-							cell.innerHTML = i + 1;
-						});
-					}).draw();
-
-					var target = $("#badges");
-
-					for(var uri in badges){
-						var a = $("<a>");
-						target.append(a);
-						//a.attr("href", uri);
-						a.attr("href", "./tree_search.html?resourceUri="+uri);
-						a.append(badges[uri]);
-						if(uri != Object.keys(badges)[Object.keys(badges).length-1]){
-							target.append(" , ");
-						}
-					}
-
-
-					showNodes();
-
-				},
-				error : function(data) {
-					alert(data.statusText);
-				}
-			});
-		}
-
-
-
-		function showNodes() {
-		  var div = $("#resultNode");
-		  div.empty();
-
-		  var query = getPrefixes();
-
-		  query += " SELECT DISTINCT * ";
-		  query += " WHERE { ";
-		  query += " { ?s rdf:type ?o . filter (?s != ?o)} ";
-		  query += " UNION ";
-		  query += " { ?s rdfs:subClassOf ?o . } ";
-		  query += " ?s rdfs:label ?sLabel .  ";
-		  query += " ?o rdfs:label ?oLabel .  ";
-		  if(en_flg){
-		    query += " filter(LANG(?sLabel) = 'en') ";
-		    query += " filter(LANG(?oLabel) = 'en') ";
-		  } else {
-		    query += " filter(LANG(?sLabel) = 'ja') ";
-		    query += " filter(LANG(?oLabel) = 'ja') ";
-		  }
-		  query += " optional {?s dbo:layingDown ?date . } ";
-		  query += " optional {?s rdf:type ?class . } ";
-		  query += " } ";
-		  query += " order by ?date ";
-
-		  $.ajax({
-		    type : "POST",
-		    url : endpoint,
-		    data : {
-		      query : query,
-		      format : "json"
-		    },
-		    success : function(data) {
-
-		      var result = data.results.bindings;
-
-		      var obj2 = new Object();
-		      obj2.id = topUri;
-		      obj2.parent = "#";
-
-		      if(en_flg){
-		        obj2.text = "Warship";
-		      } else {
-		        obj2.text = "軍艦";
-		      }
-
-		      //obj2.text = "#";
-
-		      obj2.icon = "fa fa-folder-o";
-		      var state = new Object();
-		      state.opened = true;
-		      obj2.state = state;
-
-					if(resourceUri == topUri){
-						state.selected = true;
-					}
-
-		      data2.push(obj2);
-
-		      for(var i = 0; i < result.length; i++){
-		        var obj = result[i];
-
-		        var uri = obj.s.value;
-
-		        result2[uri] = obj;
-
-		        var parentUri = obj.o.value;
-
-		        if(!children[parentUri]){
-		          children[parentUri] = new Array();
-		        }
-
-		        var date = "9999-99-99";
-		        if(obj.date){
-		          //date = obj.date.value;
-		        } else {
-		          obj.date = new Object();
-		          obj.date.value = date;
-		        }
-
-		        if(children[parentUri].indexOf(uri) == -1){
-		          children[parentUri].push(uri);
-		        }
-
-
-		      }
-
-
-
-
-		      for(var key in children){
-
-		        var array = children[key];
-
-		        var date = "9999-99-99";
-
-		        for(var i = 0; i < array.length; i++){
-		          var obj = result2[array[i]];
-		          if(obj.date.value < date){
-		            date = obj.date.value;
-		          }
-		        }
-
-		        if(result2[key] != null){//Warship
-		          result2[key].date.value = date;
-		        }
-
-
-		      }
-
-		      for(var key in children){
-
-		        var array = children[key];
-
-		        var date = "9999-99-99";
-
-		        for(var i = 0; i < array.length; i++){
-		          var obj = result2[array[i]];
-		          if(obj.date.value < date){
-		            date = obj.date.value;
-		          }
-		        }
-
-		        if(result2[key] != null){//Warship
-		          result2[key].date.value = date;
-		        }
-
-
-		      }
-
-		      for(var key in children){
-		        var array = children[key];
-		        var array2 = new Array();
-		        for(var i = 0; i < array.length; i++){
-		          var childUri = array[i];
-		          var obj = result2[childUri];
-		          array2.push(obj.date.value+"|"+childUri);
-		        }
-		        children[key] = array2;
-		      }
-
-		    createJson(topUri);
-
-		    // data format demo
-		    $('#frmt').jstree({
-		      'core' : {
-		        'data' : data2
-		      },
-		      "plugins" : [ "search" ]
-		    });
-
-		    $('#frmt').on("changed.jstree", function(e, data) {
-
-		      var selectedUri = data.selected[0];
-		      if(selectedUri != resourceUri){
-		        search(selectedUri);
-		      }
-
-		    });
-
-
-		  },
-		  error : function(data) {
-		    alert(data.statusText);
-		  }
-		});
-		}
-
-		function createJson(parentUri, flg){
-
-
-
-		  var array = children[parentUri];
-
-		  if(array == null){
-		    return;
-		  }
-
-		  array.sort(function(a,b){
-		    if( a < b ) return -1;
-		    if( a > b ) return 1;
-		    return 0;
-		  });
-
-		  for(var i = 0; i < array.length; i++){
-		    var childUri = array[i].split("|")[1];
-		    var obj = result2[childUri];
-
-		    var obj2 = new Object();
-
-
-
-		    obj2.id = childUri;
-		    obj2.parent = parentUri;//obj.o.value;
-		    obj2.text = obj.sLabel.value;
-
-
-		    obj2.icon = "fa fa-ship";
-
-		    if(!obj.class){
-		      obj2.icon = "fa fa-folder-o";
-		    }/* else {
-		      if(obj.date && obj.date.value != "9999-99-99"){
-		        obj2.text += " "+obj.date.value;
-		      }
-		    }*/
-
-		    var state = new Object();
-		    if(obj2.id == "http://dbpedia.org/resource/Cruiser"){
-		      state.opened = true;
-		    }
-		    if(obj.s.value == resourceUri){
-		      state.selected = true;
-		    };
-		    obj2.state = state;
-
-		    data2.push(obj2);
-
-		    //createJson(childUri);
-		    createJson(childUri);
-		  }
-		}
-
-    function search(resourceUri) {
-        location.href = "./tree_search.html?resourceUri="+resourceUri;
+        "columnDefs" : [ {
+          "width" : "20%",
+          "targets" : 1
+        }, {
+          "width" : "20%",
+          "targets" : 2
+        }, {
+          "width" : "20%",
+          "targets" : 3
+        } ]
+
+      });
+
+      table.on('order.dt search.dt', function() {
+        table.column(0, {
+          search : 'applied',
+          order : 'applied'
+        }).nodes().each(function(cell, i) {
+          cell.innerHTML = i + 1;
+        });
+      }).draw();
+
+      var target = $("#badges");
+
+      for(var uri in badges){
+        var a = $("<a>");
+        target.append(a);
+        //a.attr("href", uri);
+        a.attr("href", "./tree_search.html?resourceUri="+uri);
+        a.append(badges[uri]);
+        if(uri != Object.keys(badges)[Object.keys(badges).length-1]){
+          target.append(" , ");
+        }
+      }
+
+
+      showNodes();
+
+    },
+    error : function(data) {
+      alert(data.statusText);
     }
+  });
+}
+
+
+
+function showNodes() {
+  var div = $("#resultNode");
+  div.empty();
+
+  var query = getPrefixes();
+
+  query += " SELECT DISTINCT * ";
+  query += " WHERE { ";
+  query += " { ?s rdf:type ?o . filter (?s != ?o)} ";
+  query += " UNION ";
+  query += " { ?s rdfs:subClassOf ?o . } ";
+  query += " ?s rdfs:label ?sLabel .  ";
+  query += " ?o rdfs:label ?oLabel .  ";
+  if(en_flg){
+    query += " filter(LANG(?sLabel) = 'en') ";
+    query += " filter(LANG(?oLabel) = 'en') ";
+  } else {
+    query += " filter(LANG(?sLabel) = 'ja') ";
+    query += " filter(LANG(?oLabel) = 'ja') ";
+  }
+  query += " optional {?s dbo:layingDown ?date . } ";
+  query += " optional {?s rdf:type ?class . } ";
+  query += " } ";
+  query += " order by ?date ";
+
+  $.ajax({
+    type : "POST",
+    url : endpoint,
+    data : {
+      query : query,
+      format : "json"
+    },
+    success : function(data) {
+
+      var result = data.results.bindings;
+
+      var obj2 = new Object();
+      obj2.id = topUri;
+      obj2.parent = "#";
+
+      if(en_flg){
+        obj2.text = "Warship";
+      } else {
+        obj2.text = "軍艦";
+      }
+
+      //obj2.text = "#";
+
+      obj2.icon = "fas fa-folder";
+      var state = new Object();
+      state.opened = true;
+      obj2.state = state;
+
+      if(resourceUri == topUri){
+        state.selected = true;
+      }
+
+      data2.push(obj2);
+
+      for(var i = 0; i < result.length; i++){
+        var obj = result[i];
+
+        var uri = obj.s.value;
+
+        result2[uri] = obj;
+
+        var parentUri = obj.o.value;
+
+        if(!children[parentUri]){
+          children[parentUri] = new Array();
+        }
+
+        var date = "9999-99-99";
+        if(obj.date){
+          //date = obj.date.value;
+        } else {
+          obj.date = new Object();
+          obj.date.value = date;
+        }
+
+        if(children[parentUri].indexOf(uri) == -1){
+          children[parentUri].push(uri);
+        }
+
+
+      }
+
+
+
+
+      for(var key in children){
+
+        var array = children[key];
+
+        var date = "9999-99-99";
+
+        for(var i = 0; i < array.length; i++){
+          var obj = result2[array[i]];
+          if(obj.date.value < date){
+            date = obj.date.value;
+          }
+        }
+
+        if(result2[key] != null){//Warship
+          result2[key].date.value = date;
+        }
+
+
+      }
+
+      for(var key in children){
+
+        var array = children[key];
+
+        var date = "9999-99-99";
+
+        for(var i = 0; i < array.length; i++){
+          var obj = result2[array[i]];
+          if(obj.date.value < date){
+            date = obj.date.value;
+          }
+        }
+
+        if(result2[key] != null){//Warship
+          result2[key].date.value = date;
+        }
+
+
+      }
+
+      for(var key in children){
+        var array = children[key];
+        var array2 = new Array();
+        for(var i = 0; i < array.length; i++){
+          var childUri = array[i];
+          var obj = result2[childUri];
+          array2.push(obj.date.value+"|"+childUri);
+        }
+        children[key] = array2;
+      }
+
+      createJson(topUri);
+
+      // data format demo
+      $('#frmt').jstree({
+        'core' : {
+          'data' : data2
+        },
+        "plugins" : [ "search" ]
+      });
+
+      $('#frmt').on("changed.jstree", function(e, data) {
+
+        var selectedUri = data.selected[0];
+        if(selectedUri != resourceUri){
+          search(selectedUri);
+        }
+
+      });
+
+
+    },
+    error : function(data) {
+      alert(data.statusText);
+    }
+  });
+}
+
+function createJson(parentUri, flg){
+
+
+
+  var array = children[parentUri];
+
+  if(array == null){
+    return;
+  }
+
+  array.sort(function(a,b){
+    if( a < b ) return -1;
+    if( a > b ) return 1;
+    return 0;
+  });
+
+  for(var i = 0; i < array.length; i++){
+    var childUri = array[i].split("|")[1];
+    var obj = result2[childUri];
+
+    var obj2 = new Object();
+
+
+
+    obj2.id = childUri;
+    obj2.parent = parentUri;//obj.o.value;
+    obj2.text = obj.sLabel.value;
+
+
+    obj2.icon = "fa fa-ship";
+
+    if(!obj.class){
+      obj2.icon = "fas fa-folder";
+    }
+
+  var state = new Object();
+  if(obj2.id == "http://dbpedia.org/resource/Cruiser"){
+    state.opened = true;
+  }
+  if(obj.s.value == resourceUri){
+    state.selected = true;
+  };
+  obj2.state = state;
+
+  data2.push(obj2);
+
+  //createJson(childUri);
+  createJson(childUri);
+}
+}
+
+function search(resourceUri) {
+  location.href = "./tree_search.html?resourceUri="+resourceUri;
+}
 
 
 </script>
