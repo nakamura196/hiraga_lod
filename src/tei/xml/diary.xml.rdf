@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:ns1="http://purl.org/dc/elements/1.1/"
+   xmlns:ns2="http://xmlns.com/foaf/0.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="http://example.org#zone_dv5_dcz_q2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:date>1938-12-21</ns1:date>
+    <ns1:description>
+&lt;br/&gt;9.30 登学、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;佐藤氏&lt;/a&gt;ヨリ事ムヲ引継ク &lt;br/&gt;10.00 部課長へ新任アイサツ
+            &lt;br/&gt;10.30 本部職員へ挨サツ &lt;br/&gt;11.30 文相ヨリ官紀受 &lt;br/&gt; 政務次官、次官、参与官、教〔学局〕長官、専門局長ニアイサツ &lt;br/&gt;
+            文部食堂ニテ食事 &lt;br/&gt; 午后宮家へ御アイサツ &lt;br/&gt;正午学ム課長ヨリ御講書始控へノ交渉アリ &lt;br/&gt;
+&lt;/ns0:p&gt;</ns1:description>
+    <ns1:title>十二月二十一日（水）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/936,811,501,271/full/0/default.jpg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_nz1_lnc_r2b">
+    <ns1:description>
+&lt;br/&gt;
+&lt;ns0:persName corresp="#本位田祥男"&gt;本&lt;ns0:choice&gt;
+&lt;ns0:sic&gt;井&lt;/ns0:sic&gt;
+&lt;ns0:corr&gt;位&lt;/ns0:corr&gt;
+&lt;/ns0:choice&gt;田教授&lt;/ns0:persName&gt;
+&lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1938-12-27</ns1:date>
+    <ns1:title>十二月二十七日（火）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/本位田祥男"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/1478,620,263,43/full/0/default.jpg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_rnr_kmc_r2b">
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/913,792,527,230/full/0/default.jpg"/>
+    <ns1:title>一月十七日（火）</ns1:title>
+    <ns1:description>
+&lt;br/&gt;6. p.m. 七日会 &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/赤間信義' title='赤間信義'&gt;赤間&lt;/a&gt;
+&lt;br/&gt;午后部長会議 &lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-17</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/赤間信義"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_vcy_b4c_r2b">
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/928,535,517,245/full/0/default.jpg"/>
+    <ns1:title>一月二十三日（月）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns1:date>1939-01-23</ns1:date>
+    <ns1:description>
+&lt;br/&gt;朝&lt;ns0:persName corresp="石黒英彦"&gt;石黒次官&lt;/ns0:persName&gt;へ電話 &lt;/ns0:p&gt;</ns1:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_rn5_5b1_r2b">
+    <ns1:date>1939-01-20</ns1:date>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/1440,517,538,268/full/0/default.jpg"/>
+    <ns1:title>一月二十日（金）</ns1:title>
+    <ns1:description>
+&lt;br/&gt;大臣へ電話（7:30） &lt;br/&gt;&lt;a style='color : #c34528;' href='' title='清水'&gt;清水&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中&lt;/a&gt;
+&lt;br/&gt;大臣邸へ &lt;br/&gt;会談（10-11時） &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns1:subject rdf:resource=""/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_kr4_nmc_r2b">
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中&lt;/a&gt;両学部長へ &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/赤間信義' title='赤間信義'&gt;赤間氏&lt;/a&gt;来学 &lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-21</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/赤間信義"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:title>一月二十一日（土）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/1448,791,530,222/full/0/default.jpg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_o4m_3mc_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山田文雄"/>
+    <ns1:description>
+&lt;br/&gt;午前&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山田文雄' title='山田文雄〔経済学部教授〕'&gt;山田教授&lt;/a&gt;
+&lt;br/&gt;午后 &lt;br/&gt;会談 &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;佐藤農学部長&lt;/a&gt;
+&lt;br/&gt;軍教官二名 &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石原忍' title='石原忍〔医学部長〕'&gt;石原&lt;/a&gt;部長 &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/寺沢寬一' title='寺沢寬一〔理学部長〕'&gt;寺況&lt;/a&gt;部長&lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-16</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石原忍"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/914,540,511,251/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:title>一月十六日（月）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/寺沢寬一"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_d4c_nmc_r2b">
+    <ns1:title>一月十九日（木）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/925,1274,520,289/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:description>
+&lt;br/&gt;&lt;ns0:orgName corresp="#第七回学振学術部委員総会"&gt;学振委員総会&lt;/ns0:orgName&gt;（欠）、（9 1/2 上野精養軒、昼食）
+               &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合定二' title='河合定二〔予備役海軍造船官・明治三八年造船学科卒〕'&gt;河合定二氏&lt;/a&gt;来賀&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;農学部長&lt;/a&gt;
+&lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-19</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合定二"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_apt_xnc_r2b">
+    <ns1:description>
+&lt;br/&gt;1.0 評議会 &lt;br/&gt;法経委員会&lt;/ns0:p&gt;</ns1:description>
+    <ns1:title>一月十日（火）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/920,776,528,240/full/0/default.jpg"/>
+    <ns1:date>1939-01-10</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_vjl_pnc_r2b">
+    <ns1:description>
+&lt;br/&gt;
+&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須&lt;/a&gt;
+&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:date>1938-12-25</ns1:date>
+    <ns1:title>十二月二十五日（日）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/980,1363,210,87/full/0/default.jpg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_ct3_c4c_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/931,783,514,237/full/0/default.jpg"/>
+    <ns1:title>一月二十四日（火）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/寺沢寬一"/>
+    <ns1:description>
+&lt;br/&gt;御講書始メ10.0 （9-30参内）、フロックコート &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出氏&lt;/a&gt;
+&lt;br/&gt;教制委員会（小会） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/寺沢寬一' title='寺沢寬一〔理学部長〕'&gt;寺沢氏&lt;/a&gt;
+&lt;br/&gt;夜12.0 &lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石黒英彦' title='石黒英彦〔文部次官〕'&gt;石黒氏&lt;/a&gt;来訪（大臣ヨリ総長ノ思フ様ニヤラレヨ） &lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-24</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_yzc_3nc_r2b">
+    <ns1:description>
+&lt;br/&gt;1.0 全学教授へ新任挨拶 &lt;br/&gt;右終リテ学部長ト懇談 &lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/978,1020,398,138/full/0/default.jpg"/>
+    <ns1:title>十二月二十二日（木）</ns1:title>
+    <ns1:date>1938-12-22</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_o3w_2nc_r2b">
+    <ns1:title>十二月二十日（火）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/972,629,471,168/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;朝8-30訪問、大学、任セル故宜クトノ事 &lt;br/&gt;今朝ノ閣議ニテ通過、内閣ヨリ発表 &lt;br/&gt;2 1/2 p.m - 3:00ノ間二&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;佐藤氏&lt;/a&gt;ヨリ発布ノ電話アリ &lt;br/&gt;4.10 p.m. 新聞記者十数名ニ会見ス &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:date>1938-12-20</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_dsx_c4c_r2b">
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/932,1023,513,252/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;水曜会宴会（総長） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合氏&lt;/a&gt;ヨリノ懇請 &lt;br/&gt;講師&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/大河内一男' title='大河内一男〔講師〕'&gt;大河内一男&lt;/a&gt;
+&lt;br/&gt;助手&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/木村健康' title='木村健康〔助手〕'&gt;木村健康&lt;/a&gt;
+&lt;br/&gt;〃&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/安井琢磨' title='安井琢磨〔助手〕'&gt;安井琢磨&lt;/a&gt;
+&lt;br/&gt;教授&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山田文雄' title='山田文雄〔経済学部教授〕'&gt;山田&lt;/a&gt;
+&lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方氏&lt;/a&gt;（総長室）、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/本位田祥男' title='本位田祥男〔経済学部教授〕'&gt;本位田&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田辺忠男' title='田辺忠男'&gt;田辺&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/中西寅雄' title='中西寅雄'&gt;中西&lt;/a&gt;→&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方&lt;/a&gt;
+&lt;br/&gt;夜&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合氏&lt;/a&gt;（宅）最後 &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/土方成美"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/安井琢磨"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/大河内一男"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田辺忠男"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/木村健康"/>
+    <ns1:date>1939-01-25</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山田文雄"/>
+    <ns1:title>一月二十五日（水）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/本位田祥男"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/中西寅雄"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_jcx_jnc_r2b">
+    <ns1:title>十二月二十四日（土）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/981,1268,202,54/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:date>1938-12-24</ns1:date>
+    <ns1:description>
+&lt;br/&gt;
+&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須&lt;/a&gt;
+&lt;/ns0:p&gt;</ns1:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_xb4_znc_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/桑田芳蔵"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/荒木貞夫"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/1452,774,530,242/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;2. p.m. 総長懇談（&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;文部大臣&lt;/a&gt;官邸）&lt;br/&gt;dinner &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出部長&lt;/a&gt;来訪（夜） &lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/桑田芳蔵' title='桑田芳蔵〔文学部長〕'&gt;桑田&lt;/a&gt;文学部長会談 &lt;/ns0:p&gt;</ns1:description>
+    <ns1:title>一月十四日（土）</ns1:title>
+    <ns1:date>1939-01-14</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_rm2_ync_r2b">
+    <ns1:date>1939-01-11</ns1:date>
+    <ns1:title>一月十一日（水）</ns1:title>
+    <ns1:description>
+&lt;br/&gt;法部長、評議員会議 &lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合&lt;/a&gt;氏弁明 &lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/924,1016,526,244/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_qch_4mc_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns1:subject rdf:resource=""/>
+    <ns1:description>
+&lt;br/&gt;&lt;ns0:persName corresp="楠瀬"&gt;楠瀬&lt;/ns0:persName&gt;送別会（noon） &lt;br/&gt;平賀祝賀会 &lt;br/&gt;&lt;ns0:orgName corresp="#水交社"&gt;水交社&lt;/ns0:orgName&gt;&lt;br/&gt;夜、&lt;ns0:persName corresp="石黒英彦"&gt;石黒次官&lt;/ns0:persName&gt;来邸（9-10
+            p.m.） &lt;br/&gt;&lt;ns0:persName corresp="岩佐五郎"&gt;岩佐氏&lt;/ns0:persName&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須氏&lt;/a&gt;来訪 &lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/1449,1019,528,241/full/0/default.jpg"/>
+    <ns1:date>1939-01-22</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:title>一月二十二日（日）</ns1:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_lxp_d4c_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/土方成美"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:title>一月二十六日（木）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田辺忠男"/>
+    <ns1:description>
+&lt;br/&gt;5・学士会館、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;農学部長&lt;/a&gt;還暦祝賀会 &lt;br/&gt;7.30 a.m. &lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方氏&lt;/a&gt;ヨリ電話 &lt;br/&gt;9.00 〃&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合氏&lt;/a&gt;ヨリ〃 （辞表ヲ出サズ） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方氏&lt;/a&gt;（辞表ヲ出サズ）
+               &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/本位田祥男' title='本位田祥男〔経済学部教授〕'&gt;本位田&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田辺忠男' title='田辺忠男'&gt;田辺&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/中西寅雄' title='中西寅雄'&gt;中西&lt;/a&gt;→&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方&lt;/a&gt;
+&lt;br/&gt;11.00 p.m. （&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/土方成美' title='土方成美'&gt;土方&lt;/a&gt;ヨリ電話、辞表ヲ出サズ） &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/中西寅雄"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/936,1276,515,284/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/本位田祥男"/>
+    <ns1:date>1939-01-26</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_vdf_24c_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/鈴木貫太郎"/>
+    <ns1:description>
+&lt;br/&gt;&lt;ns0:orgName corresp="#洋々会"&gt;洋々会&lt;/ns0:orgName&gt;ニテ祝盃（総長） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/鈴木貫太郎' title='鈴木貫太郎〔海軍大将〕'&gt;鈴木大将&lt;/a&gt;、任命ナリト難モ、全国学者ノ推センナリ &lt;br/&gt;海軍ヨリ総理、閣僚ノ出タヨリモ比べモノニナラナイ程喜バシイ、 &lt;br/&gt;大&lt;ns0:choice&gt;
+&lt;ns0:sic&gt;分&lt;/ns0:sic&gt;
+&lt;/ns0:choice&gt;拍手アリ &lt;br/&gt;5.15-6.15 ステーションホテルニテ&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石黒英彦' title='石黒英彦〔文部次官〕'&gt;次官&lt;/a&gt;ト会見、書類ヲ手渡ス &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;来訪 &lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/1448,527,530,253/full/0/default.jpg"/>
+    <ns1:date>1939-01-27</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns1:title>一月二十七日（木）</ns1:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_omg_2nc_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:date>1938-12-19</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/荒木貞夫"/>
+    <ns1:title>十二月十九日（月）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/971,566,467,62/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;同氏&lt;/a&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;荒木大臣&lt;/a&gt;ニ推薦ス &lt;br/&gt;夜電話アリ明朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;大臣&lt;/a&gt;私邸へトノ事&lt;/ns0:p&gt;</ns1:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_aqs_lnc_r2b">
+    <ns1:title>十二月二十八日（水）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:date>1938-12-28</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山田文雄"/>
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山田文雄' title='山田文雄〔経済学部教授〕'&gt;山田教授&lt;/a&gt;（大学）、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中法&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出経&lt;/a&gt;
+&lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/1480,679,440,66/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_n5d_znc_r2b">
+    <ns1:date>1939-01-13</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns1:description>
+&lt;br/&gt;科学振興会&lt;br/&gt;午后学部長会議&lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合氏&lt;/a&gt;来訪&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田辺忠男' title='田辺忠男'&gt;田辺&lt;/a&gt;氏（多分是ノ日ナラン）&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田辺忠男"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/1450,528,534,244/full/0/default.jpg"/>
+    <ns1:title>一月十三日（金）</ns1:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_tyn_ync_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/926,1260,526,298/full/0/default.jpg"/>
+    <ns1:date>1939-01-12</ns1:date>
+    <ns1:title>一月十二日（木）</ns1:title>
+    <ns1:description>
+&lt;br/&gt;学士院
+            
+            &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中耕部長&lt;/a&gt;来訪（夜） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合氏&lt;/a&gt;来訪（朝） &lt;/ns0:p&gt;</ns1:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_yzb_j4c_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/荒木貞夫"/>
+    <ns1:date>1939-01-29</ns1:date>
+    <ns1:subject rdf:resource=""/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/本位田祥男"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/1450,1023,531,235/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;8-50 to 2-50 &lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;大臣&lt;/a&gt;私邸（&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;大臣&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石黒英彦' title='石黒英彦〔文部次官〕'&gt;次官&lt;/a&gt;、&lt;a style='color : #c34528;' href='' title='菅原裕〔大臣官房秘書官〕'&gt;菅原氏&lt;/a&gt;
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山田文雄' title='山田文雄〔経済学部教授〕'&gt;山田氏&lt;/a&gt;来訪（不在） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/本位田祥男' title='本位田祥男〔経済学部教授〕'&gt;本位田&lt;/a&gt;氏等来訪（不在）辞表ヲ置イテユク 7. p.m&lt;/ns0:p&gt;</ns1:description>
+    <ns1:title>一月二十九日（日）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山田文雄"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_bhh_jnc_r2b">
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山田文雄' title='山田文雄〔経済学部教授〕'&gt;山田教授&lt;/a&gt;来訪 &lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/977,1157,268,61/full/0/default.jpg"/>
+    <ns1:date>1938-12-23</ns1:date>
+    <ns1:title>十二月二十三日（金）</ns1:title>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山田文雄"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_jln_knc_r2b">
+    <ns1:date>1938-12-26</ns1:date>
+    <ns1:title>十二月二十六日（月）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/1477,499,448,122/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/米内光政"/>
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/米内光政' title='米内光政〔海軍大臣〕'&gt;海軍大臣&lt;/a&gt;（&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/山本五十六' title='山本五十六〔海軍次官〕'&gt;次官&lt;/a&gt;）、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/上田宗重' title='上田宗重〔艦政本部長〕'&gt;艦本部長&lt;/a&gt;、&lt;a style='color : #c34528;' href='' title='桑原重治〔四課部?長〕'&gt;四課長&lt;/a&gt;へ挨拶 &lt;br/&gt;三菱へ &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/山本五十六"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/上田宗重"/>
+    <ns1:subject rdf:resource=""/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_hjb_4nc_r2b">
+    <ns1:title>一月一日（日）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/1450,1015,532,248/full/0/default.jpg"/>
+    <ns1:description>
+&lt;br/&gt;9.00 大学ニテ判任官ノ賀辞ヲ受ク（明年八9-15二スベシ） &lt;br/&gt;9.40 参内 &lt;br/&gt;大宮御所、秩父、三笠、久仁、高松宮家へ参賀 &lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1939-01-01</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_dsx_k4c_r2b">
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140447/920,778,526,248/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:date>1939-01-31</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns1:title>一月三十一日（火）</ns1:title>
+    <ns1:description>（7） &lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須&lt;/a&gt;
+&lt;br/&gt;12-1.30 &lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石黒英彦' title='石黒英彦〔文部次官〕'&gt;次官&lt;/a&gt;訪問（&lt;a style='color : #c34528;' href='' title='菅原裕〔大臣官房秘書官〕'&gt;秘書官&lt;/a&gt;邸）、先方ヨリノ招キニ依ル &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;、&lt;a style='color : #c34528;' href='' title='上野道輔'&gt;上野&lt;/a&gt;
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;佐藤&lt;/a&gt;
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合教授&lt;/a&gt;分限委員会可决、3.00頃発令&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource=""/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_f43_mmc_r2b">
+    <ns1:subject rdf:resource=""/>
+    <ns1:description>
+&lt;br/&gt;&lt;ns0:orgName corresp="#日本学術振興会"&gt;学振&lt;/ns0:orgName&gt;、□ □ □ □ （欠返）（12.如水館） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;那須&lt;/a&gt;（朝） &lt;br/&gt;三菱へ（&lt;a style='color : #c34528;' href='' title='元良信太郎〔常務取締役〕'&gt;元良&lt;/a&gt;、&lt;a style='color : #c34528;' href='' title='玉井喬介〔長崎造船所長〕'&gt;玉井&lt;/a&gt;、&lt;a style='color : #c34528;' href='' title='佐藤尚〔造船設計部計画課長〕'&gt;佐藤&lt;/a&gt;
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/今井登志喜' title='今井登志喜〔文学部教授〕'&gt;今井文&lt;/a&gt;
+&lt;br/&gt;朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;文相&lt;/a&gt;へ電話 &lt;br/&gt;夜&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;文相&lt;/a&gt;私邸へ &lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/荒木貞夫"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140445/913,1027,531,241/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/今井登志喜"/>
+    <ns1:title>一月十八日（水）</ns1:title>
+    <ns1:date>1939-01-18</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_mjh_mnc_r2b">
+    <ns1:title>十二月二十九日（木）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/1481,778,472,140/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/河合栄治郎"/>
+    <ns1:date>1938-12-29</ns1:date>
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/河合栄治郎' title='河合栄治郎〔経済学部教授〕'&gt;河合教授&lt;/a&gt;来訪（自宅） &lt;br/&gt;午后三菱へ（技術顧問辞退二決入）
+            &lt;br/&gt;優秀船、艦艇ノ主要ナルコトハ三菱ヨリ聞キニ来ルコトヲ建前トス &lt;/ns0:p&gt;</ns1:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_x2k_f4c_r2b">
+    <ns1:title>一月二十八日（土）</ns1:title>
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中&lt;/a&gt;、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;
+&lt;br/&gt;午后1-2.5 部長会議（報告） &lt;br/&gt;夕刊ニテ各紙発表ス &lt;br/&gt;夜電話、明朝&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/荒木貞夫' title='荒木貞夫〔文部大臣〕'&gt;大臣&lt;/a&gt;邸ヘト招カル&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/荒木貞夫"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140446/1447,783,531,237/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:date>1939-01-28</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_ozn_5nc_r2b">
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='' title='原友子'&gt;原友子&lt;/a&gt;披露（於、東京会館）&lt;/ns0:p&gt;</ns1:description>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140443/1446,528,536,252/full/0/default.jpg"/>
+    <ns1:title>一月六日（金）</ns1:title>
+    <ns1:date>1939-01-06</ns1:date>
+    <ns1:subject rdf:resource=""/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_xc3_xnc_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+    <ns1:date>1939-01-09</ns1:date>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/寺沢寬一"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/田中耕太郎"/>
+    <ns1:description>
+&lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;氏、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/田中耕太郎' title='田中耕太郎〔法学部教授〕'&gt;田中&lt;/a&gt;氏
+               &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/寺沢寬一' title='寺沢寬一〔理学部長〕'&gt;理学部長&lt;/a&gt;&lt;/ns0:p&gt;</ns1:description>
+    <ns1:title>一月九日（月）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140444/920,536,528,240/full/0/default.jpg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_x4c_dnc_r2b">
+    <ns1:title>十二月十八日（日）</ns1:title>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140442/970,528,438,36/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/佐藤寛次"/>
+    <ns1:description>
+&lt;br/&gt;正午&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/佐藤寛次' title='佐藤寛次〔総長事務扱, 農学部長〕'&gt;佐藤事ム扱&lt;/a&gt;ニ内諾ヲ伝フ&lt;/ns0:p&gt;</ns1:description>
+    <ns1:date>1938-12-18</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_h1k_k4c_r2b">
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/那須皓"/>
+    <ns1:description>（7） &lt;br/&gt;造船協会理事会、5-30 &lt;br/&gt;1 1/2 p.m. 科振第四回
+            （文第二会議室） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;朝那須&lt;/a&gt; （&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;同氏&lt;/a&gt;ハ&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/石黒英彦' title='石黒英彦〔文部次官〕'&gt;次官&lt;/a&gt;二遇フ） &lt;br/&gt;午后&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/那須皓' title='那須皓〔農学部教授〕'&gt;〃&lt;/a&gt;&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/石黒英彦"/>
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140447/920,538,526,240/full/0/default.jpg"/>
+    <ns1:title>一月三十日（月）</ns1:title>
+    <ns1:date>1939-01-30</ns1:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org#zone_rly_5nc_r2b">
+    <ns2:thumbnail rdf:resource="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/140443/1446,782,528,234/full/0/default.jpg"/>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/斯波孝四郎"/>
+    <ns1:title>一月七日（土）</ns1:title>
+    <ns1:date>1939-01-07</ns1:date>
+    <ns1:description>
+&lt;br/&gt;夜、&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/斯波孝四郎' title='斯波孝四郎〔三菱重工取締役会長〕'&gt;斯波&lt;/a&gt;氏ヨリ招待（於、新キラク） &lt;br/&gt;&lt;a style='color : #c34528;' href='https://ja.wikipedia.org/wiki/舞出長五郎' title='舞出長五郎〔経済学部教授〕'&gt;舞出&lt;/a&gt;氏&lt;/ns0:p&gt;</ns1:description>
+    <ns1:subject rdf:resource="http://ja.dbpedia.org/resource/舞出長五郎"/>
+  </rdf:Description>
+</rdf:RDF>
