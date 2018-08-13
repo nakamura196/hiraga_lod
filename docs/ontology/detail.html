@@ -1,0 +1,645 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <title>LOD Applications</title>
+  <style>
+  body{
+    word-wrap : break-word;
+    overflow-wrap : break-word;
+  }
+</style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="./">軍艦オントロジー</a>
+  </nav>
+
+  <main role="main" class="mt-5">
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <h1 id="label" class="mb-3"></h1>
+        <div class="row">
+          <div class="col col-md-9">
+            <p id="abst"></p>
+            <div id="resourceListBody2"></div>
+          </div>
+          <div class="col col-md-3">
+            <img width="100%" id="thumb">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="panel" style="display : none;">
+
+        <div class="card">
+          <div class="card-header trn">
+            平賀譲デジタルアーカイブ
+          </div>
+          <div class="card-body">
+            <dl class="row my-3">
+              <dt class="col-sm-2 trn">キーワード</dt>
+              <dd class="col-sm-10"><span  id="badges"></span></dd>
+            </dl>
+
+            <table class="table table-striped table-hover" id="table">
+              <thead id="thead">
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th class="trn">タイトル</th>
+                  <th class="trn">作成年月日</th>
+                  <th class="trn">キーワード</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="resourceListBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+
+      <hr class="my-5">
+
+    </main>
+
+    <footer class="container">
+      <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
+    </footer>
+
+
+    <script
+    src="//code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="../../assets/js/common.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    var arg  = new Object;
+    url = location.search.substring(1).split('&');
+
+    for(i=0; url[i]; i++) {
+      var k = url[i].split('=');
+      arg[k[0]] = decodeURIComponent(k[1]);
+    }
+
+    var resourceUri = arg["resourceUri"];
+
+
+    var en_flg = false;
+    if(location.href.indexOf("/en/") != -1){
+      en_flg = true;
+    }
+
+    jQuery(document).ready(function() {
+
+      jQuery.ajaxSetup({
+        cache : false
+      });
+
+      if(en_flg){
+        $.getJSON(
+          "<?php echo get_stylesheet_directory_uri(); ?>/myassets/json/dict.json", //リクエストURL
+          null,       //送信データ
+          function(data2, status) {
+            var translator = $('body').translate({lang: "en", t: data2}); //use English
+          }
+        );
+      }
+
+      getAbstract();
+
+      getOther();
+      getChildren();
+
+      getShips();
+
+    });
+
+    //概要の取得
+    function getAbstract() {
+
+      var query = "";
+      query += " PREFIX rdfs: <"+prefixes.rdfs+">";
+      query += " PREFIX foaf: <"+prefixes.foaf+">";
+      query += " PREFIX owl: <"+prefixes.owl+">";
+      query += " SELECT DISTINCT * ";
+      query += " WHERE { ";
+      query += " ?s rdfs:label ?label . ";
+      query += " filter (?s = <"+resourceUri+">)  . ";
+      query += " OPTIONAL { ?s rdfs:comment ?comment . } ";
+      query += " OPTIONAL { ?s foaf:depiction ?thumb . } ";
+      if(en_flg){
+        query += " filter(LANG(?label) = 'en') ";
+        query += " filter(LANG(?comment) = 'en') ";
+      } else {
+        query += " filter(LANG(?label) = 'ja') ";
+        query += " filter(LANG(?comment) = 'ja') ";
+      }
+
+      query += " } ";
+
+      $.ajax({
+        type : "POST",
+        url : "http://dbpedia.org/sparql",
+        data : {
+          query : query,
+          format : "json"
+        },
+        success : function(data) {
+
+          var result = data.results.bindings;
+
+          if (result.length > 0) {
+            var obj = result[0];
+
+            $("#label").text(obj.label.value);
+            //$("#instance_uri").text(obj.s.value);
+            if(obj.comment){
+              $("#abst").append(obj.comment.value);
+            }
+
+            if (obj.thumb) {
+              $("#thumb").attr("src", obj.thumb.value);
+            }
+
+          }
+
+          showNodes();
+        }, error : function(data) {
+          alert(data.statusText);
+        }
+      })
+    };
+
+    //概要の取得
+    function getOther() {
+
+      var query = "";
+      query += " PREFIX rdfs: <"+prefixes.rdfs+">";
+      query += " SELECT DISTINCT * ";
+      query += " WHERE { ";
+      query += " ?s ?p ?o . ";
+      query += " filter (?s = <"+resourceUri+">)  . ";
+      query += " OPTIONAL { ?o rdfs:label ?label . ";
+      if(en_flg){
+        query += " filter(LANG(?label) = 'en') ";
+      } else {
+        query += " filter(LANG(?label) = 'ja') ";
+      }
+      query += " } ";
+
+      query += " } ";
+
+      $.ajax({
+        type : "POST",
+        url : endpoint,
+        data : {
+          query : query,
+          format : "json"
+        },
+        success : function(data) {
+
+          var result = data.results.bindings;
+
+          for(var i = 0; i < result.length; i++){
+            var obj = result[i];
+
+            var p = obj.p.value;
+
+            if(p == prefixes.rdfs+"subClassOf"  && obj.label){
+
+              if(obj.o.value.indexOf("Category") != -1){
+                continue;
+              }
+
+              dl = $('<dl class="row">')
+              $("#resourceListBody2").append(dl)
+
+              dt = $('<dt class="col-sm-2">')
+              dl.append(dt)
+
+              if(en_flg){
+                dt.append("Type");
+              } else {
+                dt.append("艦種");
+              }
+
+              dd = $('<dt class="col-sm-10">')
+              dl.append(dd)
+
+
+              var a = $("<a>");
+              dd.append(a);
+              a.attr("href", "detail.html?resourceUri="+obj.o.value);
+              a.append(obj.label.value);
+              //a.attr("class", "label label-default");
+            } else if(p == prefixes.rdf+"type" && obj.label){
+
+              if(obj.o.value.indexOf("Category") != -1){
+                continue;
+              }
+
+              dl = $('<dl class="row">')
+              $("#resourceListBody2").append(dl)
+
+              dt = $('<dt class="col-sm-2">')
+              dl.append(dt)
+
+              if(en_flg){
+                dt.append("Class");
+              } else {
+                dt.append("艦級");
+              }
+
+              dd = $('<dt class="col-sm-10">')
+              dl.append(dd)
+
+              var a = $("<a>");
+              dd.append(a);
+              a.attr("href", "./detail.html?resourceUri="+obj.o.value);
+              a.append(obj.label.value);
+            } else if(p == "http://dbpedia.org/ontology/builder" && obj.label){
+
+              dl = $('<dl class="row">')
+              $("#resourceListBody2").append(dl)
+
+              dt = $('<dt class="col-sm-2">')
+              dl.append(dt)
+
+              if(en_flg){
+                dt.append("Builder");
+              } else {
+                dt.append("建造所");
+              }
+
+              dd = $('<dt class="col-sm-10">')
+              dl.append(dd)
+
+              var a = $("<a>");
+              dd.append(a);
+              a.attr("href", "./detail.html?resourceUri="+obj.o.value);
+              a.append(obj.label.value);
+            }
+          }
+
+
+        }, error : function(data) {
+          alert(data.statusText);
+        }
+      })
+    };
+
+    function getChildren() {
+
+      var query = "";
+      query += " PREFIX rdfs: <"+prefixes.rdfs+">";
+      query += " PREFIX rdf: <"+prefixes.rdf+">";
+      query += " SELECT DISTINCT * ";
+      query += " WHERE { ";
+      query += " ?s ?p ?o . ";
+      query += " filter (?o = <"+resourceUri+">)  . ";
+      query += " filter (?p = rdfs:subClassOf || ?p = rdf:type ) . ";
+      query += " ?s rdfs:label ?label . ";
+      if(en_flg){
+        query += " filter(LANG(?label) = 'en') ";
+      } else {
+        query += " filter(LANG(?label) = 'ja') ";
+      }
+
+      query += " } ";
+
+      $.ajax({
+        type : "POST",
+        url : endpoint,
+        data : {
+          query : query,
+          format : "json"
+        },
+        async : false,
+        success : function(data) {
+
+          var result = data.results.bindings;
+
+          if(result.length > 0){
+
+            dl = $('<dl class="row">')
+            $("#resourceListBody2").append(dl)
+
+            dt = $('<dt class="col-sm-2">')
+            dl.append(dt)
+
+            if(en_flg){
+              dt.append("Child");
+            } else {
+              dt.append("下位軍艦");
+            }
+
+
+            dd = $('<dt class="col-sm-10">')
+            dl.append(dd)
+
+            for(var i = 0; i < result.length; i++){
+              var obj = result[i];
+
+              var a = $("<a>");
+              dd.append(a);
+              a.attr("href", "./detail.html?resourceUri="+obj.s.value);
+              a.append(obj.label.value);
+              //a.attr("class", "label label-default");
+
+              if(i != result.length - 1){
+                dd.append(" , ");
+              }
+
+
+            }
+
+            //console.log(obj);
+          }
+
+
+        }, error : function(data) {
+          alert(data.statusText);
+        }
+      })
+    };
+
+    function showNodes() {
+
+      //var query =  " define input:inference 'test2' ";
+
+      var query =  ""
+
+      query += getPrefixes();
+
+      query += " select distinct * ";
+      query += " where { ";
+
+      query += " { ";
+      query += " ?s rdfs:label ?label . ?s rdf:type <"+resourceUri+"> . ";
+      query += " } UNION { ";
+      query += " ?s rdfs:label ?label . filter ( ?s = <"+resourceUri+"> ) . ?s rdf:type ?o .  ";//クラスを除去
+      query += " } ";
+
+      if(en_flg){
+        query += " filter(LANG(?label) = 'en') ";
+      } else {
+        query += " filter(LANG(?label) = 'ja') ";
+      }
+
+      query += " optional { ";
+      query += " ?res dc:subject ?s . ";
+      query += " ?res dcterms:title ?title . ";
+      query += " ?res dcterms:date ?date . ";
+      query += " ?res foaf:thumbnail ?thumbnail . ";
+      query += " } ";
+      query += " } ";
+
+      $.ajax({
+        type : "POST",
+        url : endpoint,
+        data : {
+          query : query,
+          format : "json"
+        },
+        success : function(data) {
+
+          var result = data.results.bindings;
+
+          var result2 = new Object();
+
+          var badges = new Object();
+
+          for(var i = 0 ; i < result.length; i++){
+            var obj = result[i];
+
+            if(obj.res){
+              var res = obj.res.value;
+
+              if(!result2[res]){
+                result2[res] = obj;
+                obj.keyword = new Object();
+              }
+
+              result2[res].keyword[obj.s.value] = obj.label.value;
+
+
+            }
+
+          }
+
+          if(Object.keys(result2).length != 0){
+            $("#panel").show();
+          }
+
+          for(var key in result2){
+
+            var obj = result2[key];
+
+            var tbody = $("#resourceListBody");
+            var tr = $("<tr>");
+            tbody.append(tr);
+
+            var td = $("<td>");
+            tr.append(td);
+
+            td = $("<td>");
+            tr.append(td);
+            var img = $("<img>");
+            td.append(img);
+            img.attr("src", obj.thumbnail.value);
+            img.attr("class", "img-thumbnail");
+            img.attr("width", "150px");
+
+            td = $("<td>");
+            tr.append(td);
+            td.append(obj.title.value);
+
+            td = $("<td>");
+            tr.append(td);
+            td.append(obj.date.value);
+
+            td = $("<td>");
+            tr.append(td);
+
+            var keyword_array = obj.keyword;
+
+            for(var uri in keyword_array){
+              var label = keyword_array[uri];
+
+              //var keyword_obj = keyword_array[j];
+
+              var span = $("<a>");
+              td.append(span);
+              span.attr("href", "./detail.html?resourceUri="+uri);
+              //span.attr("class", "label label-success");
+              span.append(label);
+
+              badges[uri] = label;
+
+              td.append("<br/>");
+            }
+
+            td = $("<td>");
+            tr.append(td);
+
+            var a = $("<a>");
+            td.append(a);
+
+            var link = obj.res.value;
+            link = link.replace("http://apps.is.k.u-tokyo.ac.jp/hiraga/", "http://gazo.dl.itc.u-tokyo.ac.jp/hiraga2/");
+
+            a.attr("href", link);
+            a.attr("target", "_blank");
+            a.attr("class", "btn btn-primary");
+            if(en_flg){
+              a.append("View");
+            } else {
+              a.append("詳細");
+            }
+            a.append("&nbsp;&raquo;")
+          }
+
+          // DataTable
+          var table = $('#table').DataTable({
+            "iDisplayLength" : 10,
+            //"order" : [ [ 4, "asc" ] ],
+
+            "columnDefs" : [ {
+              "width" : "20%",
+              "targets" : 1
+            }, {
+              "width" : "20%",
+              "targets" : 2
+            }, {
+              "width" : "20%",
+              "targets" : 3
+            } ]
+
+          });
+
+          table.on('order.dt search.dt', function() {
+            table.column(0, {
+              search : 'applied',
+              order : 'applied'
+            }).nodes().each(function(cell, i) {
+              cell.innerHTML = i + 1;
+            });
+          }).draw();
+
+
+          var target = $("#badges");
+
+          for(var uri in badges){
+            var a = $("<a>");
+            target.append(a);
+            //a.attr("href", uri);
+            a.attr("href", "./detail.html?resourceUri="+uri);
+            a.append(badges[uri]);
+            if(uri != Object.keys(badges)[Object.keys(badges).length-1]){
+              target.append(" , ");
+            }
+          }
+
+
+        },
+        error : function(data) {
+          alert(data.statusText);
+        }
+      });
+    }
+
+    function getShips() {
+
+      var query = "";
+      query += " PREFIX rdfs: <"+prefixes.rdfs+">";
+      query += " PREFIX rdf: <"+prefixes.rdf+">";
+      query += " SELECT DISTINCT * ";
+      query += " WHERE { ";
+      query += " ?s <http://dbpedia.org/ontology/builder> ?o . ";
+      query += " filter (?o = <"+resourceUri+">)  . ";
+      query += " ?s rdfs:label ?label . ";
+      if(en_flg){
+        query += " filter(LANG(?label) = 'en') ";
+      } else {
+        query += " filter(LANG(?label) = 'ja') ";
+      }
+
+      query += " } ";
+
+      $.ajax({
+        type : "POST",
+        url : endpoint,
+        data : {
+          query : query,
+          format : "json"
+        },
+        async : false,
+        success : function(data) {
+
+          var result = data.results.bindings;
+
+          if(result.length > 0){
+
+            dl = $('<dl class="row">')
+            $("#resourceListBody2").append(dl)
+
+            dt = $('<dt class="col-sm-2">')
+            dl.append(dt)
+
+            if(en_flg){
+              dt.append("Warship");
+            } else {
+              dt.append("軍艦");
+            }
+
+            dd = $('<dt class="col-sm-10">')
+            dl.append(dd)
+
+
+            for(var i = 0; i < result.length; i++){
+              var obj = result[i];
+
+              var a = $("<a>");
+              dd.append(a);
+              a.attr("href", "./detail.html?resourceUri="+obj.s.value);
+              a.append(obj.label.value);
+
+              if(i != result.length - 1){
+                dd.append(" , ");
+              }
+            }
+          }
+
+
+        }, error : function(data) {
+          alert(data.statusText);
+        }
+      })
+    };
+    </script>
+
+  </body>
+  </html>

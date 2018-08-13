@@ -1,0 +1,626 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <title>LOD Applications</title>
+
+  <link
+  href="http://cdnjs.cloudflare.com/ajax/libs/vis/4.15.1/vis.min.css"
+  rel="stylesheet" type="text/css" />
+  <style>
+  .vis-item.red {
+    border-color: red;
+    background-color: white;
+    color: black;
+  }
+
+  .vis-item.yellow {
+    border-color: gold;
+    background-color: white;
+    color: black;
+  }
+
+  .vis-item.blue {
+    border-color: blue;
+    background-color: white;
+    color: black;
+  }
+
+  .vis-item.vis-selected {
+    /* custom colors for selected orange items */
+    background-color: orange;
+    border-color: orangered;
+  }
+
+  /* alternating column backgrounds */
+  .vis-time-axis .vis-grid.vis-odd {
+    background: #f5f5f5;
+  }
+
+  /* gray background in weekends, white text color */
+  .vis-time-axis .vis-grid.vis-saturday, .vis-time-axis .vis-grid.vis-sunday
+  {
+    background: gray;
+  }
+
+  .vis-time-axis .vis-text.vis-saturday, .vis-time-axis .vis-text.vis-sunday
+  {
+    color: white;
+  }
+
+  .vis-item .vis-item-overflow {
+    overflow: visible;
+  }
+
+  /* custom styles for individual items, load this after vis.css/vis-timeline-graph2d.min.css */
+
+  .vis-item.green {
+    background-color: greenyellow;
+    border-color: green;
+  }
+
+  /* create a custom sized dot at the bottom of the red item */
+  .vis-item.red {
+    background-color: red;
+    border-color: darkred;
+    /*color: white;
+    font-family: monospace;
+    box-shadow: 0 0 10px gray;*/
+  }
+  .vis-item.vis-dot.red {
+    border-radius: 10px;
+    border-width: 10px;
+  }
+  .vis-item.vis-line.red {
+    border-width: 5px;
+  }
+  .vis-item.vis-box.red {
+    border-radius: 0;
+    border-width: 2px;
+    /*
+    font-size: 24pt;
+    font-weight: bold;
+    */
+  }
+
+  .vis-item.orange {
+    background-color: gold;
+    border-color: orange;
+  }
+  .vis-item.vis-selected.orange {
+    /* custom colors for selected orange items */
+    background-color: orange;
+    border-color: orangered;
+  }
+
+  .vis-item.magenta {
+    background-color: magenta;
+    border-color: purple;
+    /*color: white;*/
+  }
+
+  /* our custom classes overrule the styles for selected events,
+  so lets define a new style for the selected events */
+  .vis-item.vis-selected {
+    background-color: white;
+    border-color: black;
+    color: black;
+    box-shadow: 0 0 10px gray;
+  }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="./">軍艦オントロジー</a>
+
+  </nav>
+
+  <main role="main">
+
+    <div class="container mt-5">
+
+      <h1 class="mb-5">建造所マップ</h1>
+
+      <p class="text-center mb-5" id="loading">Loading...</p>
+
+      <div class="card mb-2">
+        <div class="card-header">
+          軍艦史（起工から竣工まで）
+        </div>
+        <div class="card-body">
+          <p><label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1" checked> <span class="badge badge-primary trn">戦艦</span>
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2" checked> <span class="badge badge-success trn">巡洋艦</span>
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3" checked> <span class="badge badge-warning trn">航空母艦</span>
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox4" value="option4" checked> <span class="badge badge-danger trn">機雷敷設艦</span>
+          </label>
+          <button class="btn btn-primary" id="searchBtn"><i class="fas fa-search"></i> <span class="trn">検索</span></button>
+        </p>
+        <div id="visualization"></div>
+      </div>
+    </div>
+
+    <div class="card" id="hiraga_timeline" style="display : none;">
+
+      <div class="card-body">
+
+        <div id="visualization2" class="mb-3"></div>
+        <div class="form-inline text-right">
+          <div class="form-group">
+            <label class="mr-sm-2">Search:</label>
+            <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+              <input type="text" class="form-control" id="term" placeholder="Add search term"/>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="search">
+            <i class="fas fa-search"></i> 検索
+          </button>
+        </div>
+      </div>
+      <div class="card-footer">
+        平賀譲略年表
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+
+  </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+  <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
+</footer>
+
+
+
+
+<script
+src="//code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript"
+src="../../assets/thirdparty/jtruncsubstr/jquery.jtruncsubstr-1.0rc.js"></script>
+
+<script type="text/javascript" src="../../assets/js/common.js"></script>
+
+<script
+src="http://cdnjs.cloudflare.com/ajax/libs/vis/4.15.1/vis.min.js"></script>
+
+<script type="text/javascript">
+var resourceUri = "";
+
+var en_flg = false;
+if(location.href.indexOf("/en/") != -1){
+  en_flg = true;
+}
+
+var result;
+
+jQuery(document).ready(function() {
+  jQuery.ajaxSetup({
+    cache : false
+  });
+
+  if(en_flg){
+    $.getJSON(
+      "<?php echo get_stylesheet_directory_uri(); ?>/myassets/json/dict.json", //リクエストURL
+      null,       //送信データ
+      function(data2, status) {
+        var translator = $('body').translate({lang: "en", t: data2}); //use English
+      }
+    );
+  }
+
+  searchShipTimeline();
+
+});
+
+$('#search').click(function(e) {
+  searchHiragaTimeline();
+});
+
+var tstart = "2016-01-01";
+var tend = "1800-01-01";
+
+var timeline;
+var timeline2;
+
+function onChange(properties) {
+  timeline.setWindow(properties.start, properties.end);
+  if(!en_flg){
+    timeline2.setWindow(properties.start, properties.end);
+  }
+}
+
+//タイムライン
+function searchShipTimeline(array) {
+
+  $("#visualization").empty();
+
+  var query = getPrefixes();
+  query += " select distinct * ";
+  query += " WHERE { ";
+
+  query += "?s rdfs:label ?label . ";
+
+  if(en_flg){
+    query += " filter(LANG(?label) = 'en') ";
+  } else {
+    query += " filter(LANG(?label) = 'ja') ";
+  }
+
+  if (resourceUri != "") {
+    query += " filter (?s = <"+resourceUri+">)  . ";
+  }
+
+  //query += "?s rdfs:comment ?comment . ";
+  //query += "?s dbo:thumbnail ?thum . ";
+
+  query += " optional { ?s dbp:shipOrdered ?shipOrdered .}  ";//Order
+  //query += " optional { ?o dbo:layingDown ?layingDown .}  ";//起工
+  query += " ?s dbo:layingDown ?layingDown .  ";//起工
+  query += " optional { ?s dbo:shipLaunch ?shipLaunch .}  ";//進水
+  query += " optional { ?s dbp:shipCompleted ?shipCompleted .}  ";//就役
+
+  query += " optional { ?s dbp:shipCommissioned ?commissioningDate .}  ";//竣工
+
+  query += " ?s dcterms:subject ?subject . ?subject rdfs:label ?subjectLabel . ";
+
+  if(array != null && array.length > 0){
+    query += " filter ( ";
+    for(var i = 0; i < array.length; i++){
+      query += " ?subject = <"+array[i]+"> ";
+      if(i != array.length - 1){
+        query += " || ";
+      }
+    }
+    query += " ) . ";
+  }
+
+  if(en_flg){
+    query += " filter(LANG(?subjectLabel) = 'en') ";
+  } else {
+    query += " filter(LANG(?subjectLabel) = 'ja') ";
+  }
+
+  query += " } order by ?layingDown";
+
+  $.ajax({
+    type : "POST",
+    url : endpoint,
+    data : {
+      query : query,
+      format : "json"
+    },
+    success : function(data) {
+
+      $("#loading").hide();
+
+      var result = data.results.bindings;
+
+      //-------------------Vis設定
+
+      var array = new Array();
+
+      var dupli = new Array();
+
+      for (var i = 0; i < result.length; i++) {
+
+        var obj = result[i];
+
+        var s = obj.s.value;
+
+        if(dupli.indexOf(s) != -1){
+          continue;
+        }
+
+        dupli.push(s);
+
+        var date = obj.layingDown.value;
+
+        if (date == "") {
+          continue;
+        }
+
+        if (tstart > date) {
+          tstart = date;
+        }
+
+        //var summary = obj.summary.value;
+
+        var label = obj.label.value;
+        if (label == "") {
+          continue;
+        }
+
+        var dend = "1800-01-01";
+        var end = dend;
+
+        var tmp = obj.shipLaunch;
+        if (tmp && end < tmp.value) {
+          end = tmp.value;
+        }
+
+        tmp = obj.shipCompleted;
+        if (tmp && end < tmp.value) {
+          end = tmp.value;Minelayer
+        }
+
+        tmp = obj.commissioningDate;
+        if (tmp && end < tmp.value) {
+          end = tmp.value;
+        }
+
+        if (tend < end) {
+          tend = end;
+        }
+
+        var obj2 = new Object();
+        obj2.id = s;
+        obj2.start = date;
+        if (end != dend) {
+          obj2.end = end;
+        }
+
+        obj2.content = label;
+
+        var subject = obj.subject.value;
+
+        if(subject == "http://dbpedia.org/resource/Cruiser"){
+          obj2.className = 'green';
+        } else if(subject == "http://dbpedia.org/resource/Aircraft_carrier"){
+          obj2.className = 'orange';
+        } else if(subject == "http://dbpedia.org/resource/Minelayer"){
+          obj2.className = 'red';
+        }
+
+
+        array.push(obj2);
+
+      }
+
+      var items = new vis.DataSet(array);
+
+      //----------------------------Timeline----------------------------
+
+      // DOM element where the Timeline will be attached
+      var container = document.getElementById('visualization');
+
+      // Configuration for the Timeline
+      var options = {
+        maxHeight : 500,
+        minHeight : 500,
+
+        start : tstart,
+        end : tend
+      };
+
+      // Create a Timeline
+      timeline = new vis.Timeline(container, items, options);
+
+      // add event listener
+      timeline.on('rangechanged', onChange);
+
+      timeline.on('select', function(properties) {
+        var selection = timeline.getSelection();
+        timeline.focus(selection);
+        //show(properties.items[0]);//要修正
+      });
+
+      if(!en_flg){
+        $("#hiraga_timeline").show();
+        searchHiragaTimeline();
+      }
+
+      
+    }
+  })
+}
+
+//タイムライン
+function searchHiragaTimeline() {
+
+  $("#visualization2").empty();
+
+  var query = getPrefixes();
+  query += " select distinct * ";
+  query += " where { ";
+  query += " ?s rdf:type cal:Vevent . ";
+  query += " ?s cal:summary ?summary . ";
+
+  var term = $("#term").val();
+
+  if (term != "") {
+    query += ' FILTER regex (?summary, "' + term + '", "i") ';
+  }
+
+  query += " ?s cal:dtstart ?dtstart . ";
+  query += " ?s cal:categories ?category . ";
+  query += " filter regex (?category,  '関連事項', 'i' ) . ";
+  query += " ?s dcndl:localCallNumber ?id . ";
+  query += " OPTIONAL { ?s dcterms:subject ?keyword . } ";
+  query += " } ";
+
+  $.ajax({
+    type : "POST",
+    url : endpoint,
+    data : {
+      query : query,
+      format : "json"
+    },
+    success : function(data) {
+      var result = data.results.bindings;
+
+      //重複を削除するためのOBJ
+      var tmpObj = new Object();
+
+      for (var i = 0; i < result.length; i++) {
+        var obj = result[i];
+
+        var id = obj.s.value;
+
+        if (!tmpObj[id]) {
+          tmpObj[id] = obj;
+          obj.match = new Array();
+        }
+
+        //キーワードを含む場合
+        if (obj.keyword) {
+          var obj2 = tmpObj[id];
+          obj2.match.push(obj.keyword.value);
+        }
+
+      }
+
+      var data = new Array();
+      $.each(tmpObj, function(k, v) {
+        data.push(v);
+      });
+
+      //-------------------Vis設定
+
+      //Class Color
+      var colorMap = new Object();
+      colorMap["平賀年表"] = "red";
+      colorMap["軍艦史"] = "blue";
+      colorMap["関連事項"] = "yellow";
+
+      var array = new Array();
+      var groupObj = new Object();
+
+      for (var i = 0; i < data.length; i++) {
+
+        var obj = data[i];
+
+        var s = obj.s.value;
+
+        var date = obj.dtstart.value;
+
+        if (date == "") {
+          continue;
+        }
+
+        var summary = obj.summary.value;
+
+        //var label = obj.label.value;
+
+        var obj2 = new Object();
+        obj2.id = s;
+        obj2.start = date;
+
+        //年表のサイズに合わせる
+        var content = "";
+        var len = 11;
+        for (var k = 0; k < 3; k++) {
+          content += summary
+          .substring(k * len, (k + 1) * len)
+          + "<br/>";
+        }
+        obj2.content = "<small>" + content + "</small>";
+
+        array.push(obj2);
+
+        var category = obj.category.value;
+        obj2.group = category;
+        obj2.className = colorMap[category];
+
+        //Group Array
+        groupObj[category] = category;
+
+      }
+
+      var groups = new vis.DataSet();
+
+      $.each(groupObj, function(k, v) {
+        var obj = new Object();
+        obj.id = k;
+        obj.content = v;
+        groups.add(obj);
+      });
+
+      var items = new vis.DataSet(array);
+
+      //----------------------------Timeline----------------------------
+
+      // DOM element where the Timeline will be attached
+      var container = document.getElementById('visualization2');
+
+      // Configuration for the Timeline
+      var options = {
+        maxHeight : 500,
+        minHeight : 500,
+        start : tstart + "-01-01",
+        end : (tend + 1) + "-01-01",
+        //stack : false
+      };
+
+      // Create a Timeline
+      timeline2 = new vis.Timeline(container, items, options);
+      //timeline2.setGroups(groups);
+
+      // add event listener
+      timeline2.on('rangechanged', onChange);
+
+      timeline2.on('select', function(properties) {
+        var selection = timeline2.getSelection();
+        timeline2.focus(selection);
+        //show(properties.items[0]);//要修正
+      });
+
+    }
+  })
+}
+
+$("#searchBtn").on('click',function(){
+  var array = new Array();
+  if($("#inlineCheckbox1:checked").val()){
+    array.push("http://dbpedia.org/resource/Battleship");
+  }
+
+  if($("#inlineCheckbox2:checked").val()){
+    array.push("http://dbpedia.org/resource/Cruiser");
+  }
+
+  if($("#inlineCheckbox3:checked").val()){
+    array.push("http://dbpedia.org/resource/Aircraft_carrier");
+  }
+
+  if($("#inlineCheckbox4:checked").val()){
+    array.push("http://dbpedia.org/resource/Minelayer");
+  }
+
+  if(array.length == 4){
+    array = new Array();
+  }
+
+  searchShipTimeline(array);
+
+
+});
+</script>
+
+</body>
+</html>

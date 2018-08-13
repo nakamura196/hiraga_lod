@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+  <title>Hiraga Applications</title>
+
+</head>
+
+<body>
+
+  <header>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="../">Hiraga Applications</a>
+      </button>
+
+    </div>
+  </nav>
+  <!--/.Navbar-->
+
+</header>
+
+<div class="container">
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">People</h1>
+  </div>
+
+  <div class="text-center" id="loading">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+  </div>
+
+  <!-- Card -->
+  <div class="card mb-5">
+    <!-- Card content -->
+    <div class="card-body">
+
+      <table id="example" class="display" style="width:100%">
+      </table>
+    </div>
+  </div><!-- Card -->
+
+  <!-- Card -->
+  <div class="card mb-5">
+    <!-- Card content -->
+    <div class="card-body">
+
+      <div id="container"></div>
+    </div>
+  </div><!-- Card -->
+
+</div>
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3">
+    Satoru Nakamura. CC BY.
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<script
+src="//code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script>
+
+jQuery(document).ready(function() {
+
+  jQuery.ajaxSetup({
+    cache : false
+  });
+
+  search()
+
+});
+
+
+function search() {
+
+  var query = " select distinct * ";
+  query += " where { ";
+  query += " ?s dc11:subject ?person . ";
+  query += " ?s dc11:date ?date . ";
+  query += " } order by ?date ";
+
+  $.ajax({
+    url:'https://dydra.com/ut-digital-archives/hiraga_tei/sparql',
+    type:'POST',
+    data:{
+      query : query,
+      format : "json"
+    }
+  })
+  // Ajaxリクエストが成功した時発動
+  .done( (data) => {
+    var result = data.results.bindings;
+
+    var dict = new Object()
+
+    var dates = []
+
+    for (var i = 0; i < result.length; i++) {
+      var obj = result[i];
+
+      var person = obj.person.value
+      var date = obj.date.value
+
+      if(person == "http://dydra.com/"){
+        continue
+      }
+
+      person = person.replace("http://ja.dbpedia.org/resource/", "")
+
+      if(dates.indexOf(date) == -1){
+        dates.push(date)
+      }
+
+      if(!dict[person]){
+        dict[person] = new Object()
+      }
+
+      var date_obj = dict[person]
+      if(!date_obj[date]){
+        date_obj[date] = 0
+      }
+
+      date_obj[date] = date_obj[date] + 1
+    }
+
+    //テーブル表示用の変数
+    var dataSet = [];
+
+    for(var person in dict){
+      var total = 0
+      var date_obj = dict[person]
+      for(var date in date_obj){
+        total = total + date_obj[date]
+      }
+
+      if(total > 1){
+        dataSet.push([person, total]);
+      } else {
+        delete dict[person]
+      }
+    }
+
+    var table = $('#example').DataTable({
+      data: dataSet,
+      columns: [
+        {title: "Person"},
+        {title: "Frequency"}
+      ],
+      "order": [[1, "desc"]]
+    });
+
+    //['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+    categories = new Array();
+    for(var i = 0; i < dates.length; i++){
+      categories.push(dates[i])
+    }
+
+    series = new Array();
+
+    for(var person in dict){
+      var obj = new Object()
+      series.push(obj)
+      obj.name = person
+      var array = new Array();
+      obj.data = array;
+
+      var date_obj = dict[person]
+
+      for(var i = 0; i < categories.length; i++){
+        var date = categories[i]
+        var freq;
+        if(date_obj[date]){
+          freq = date_obj[date]
+        } else {
+          freq = 0
+        }
+        array.push(freq)
+      }
+    }
+
+    var chart = Highcharts.chart('container', {
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: '平賀譲日記 ー昭和十三年十二月〜昭和十四年十二月ー'
+      },
+      xAxis: {
+        categories: categories
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'Frequency'
+        },
+        stackLabels: {
+          enabled: true,
+          style: {
+            fontWeight: 'bold',
+            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+          }
+        }
+      },
+      legend: {
+        align: 'right',
+        x: -30,
+        verticalAlign: 'top',
+        y: 25,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+      },
+      tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+      },
+      plotOptions: {
+        column: {
+          stacking: 'normal',
+          dataLabels: {
+            enabled: true,
+            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+          }
+        }
+      },
+      series: series
+    });
+
+  })
+  // Ajaxリクエストが失敗した時発動
+  .fail( (data) => {
+    alert(data.statusText);
+  })
+  // Ajaxリクエストが成功・失敗どちらでも発動
+  .always( (data) => {
+    $("#loading").empty()
+  });
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <title>LOD Applications</title>
+  <style>
+  body{
+    word-wrap : break-word;
+    overflow-wrap : break-word;
+  }
+  .node circle {
+    cursor: pointer;
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+
+  .node text {
+    font-size: 11px;
+  }
+
+  path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+</style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="./">軍艦オントロジー</a>
+
+  </nav>
+
+  <main role="main">
+
+    <div class="container mt-5">
+
+      <h1 class="mb-5">軍艦系統図</h1>
+
+      <p class="text-center mb-5" id="loading">Loading...</p>
+
+      <div class="form-inline mb-5">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Selected</label>
+        <input type="text" class="form-control my-1 mr-sm-2" readonly id="label" />
+        <a id="link" class="btn btn-primary my-1" target="_blank"><span class="trn">閲覧</span> &raquo;</a>
+      </div>
+
+      <div class="card mb-5">
+        <div class="card-header">
+          Tree with jsTree
+        </div>
+        <div class="card-body">
+          <div id="frmt"></div>
+        </div>
+      </div>
+
+      <div class="card mb-5">
+        <div class="card-header">
+          Tree with D3.js
+        </div>
+        <div class="card-body">
+          <div id="classTree"></div>
+        </div>
+      </div>
+
+      <hr class="my-5">
+
+    </div> <!-- /container -->
+
+  </main>
+
+  <footer class="container">
+    <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
+  </footer>
+
+  <script
+  src="//code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+  <link rel="stylesheet"
+  href="../../assets/thirdparty/jstree/themes/default/style.min.css" />
+
+  <script
+  src="../../assets/thirdparty/jstree/jstree.min.js"></script>
+
+  <script
+  src="../../assets/thirdparty/d3/d3.js"></script>
+  <script
+  src="../../assets/thirdparty/d3/d3.layout.js"></script>
+  <script
+  src="../../assets/thirdparty/d3/tree.js"></script>
+
+  <script type="text/javascript" src="../../assets/js/common.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script>
+
+  var resourceUri = "<?php echo $resourceUri ?>";
+
+  var topUri = "http://dbpedia.org/resource/Warship";
+  var result2 = new Object();
+  var children = new Object();
+  var data2 = new Array();
+
+  var root;
+
+  var en_flg = false;
+  if(location.href.indexOf("/en/") != -1){
+    en_flg = true;
+  }
+
+  jQuery(document).ready(function() {
+
+    jQuery.ajaxSetup({
+      cache : false
+    });
+
+    showNodes();
+
+  });
+
+  function showNodes() {
+    var div = $("#resultNode");
+    div.empty();
+
+    var query = getPrefixes();
+
+    query += " SELECT DISTINCT * ";
+    query += " WHERE { ";
+    query += " { ?s rdf:type ?o . filter (?s != ?o)} ";
+    query += " UNION ";
+    query += " { ?s rdfs:subClassOf ?o . } ";
+    query += " ?s rdfs:label ?sLabel .  ";
+    query += " ?o rdfs:label ?oLabel .  ";
+    if(en_flg){
+      query += " filter(LANG(?sLabel) = 'en') ";
+      query += " filter(LANG(?oLabel) = 'en') ";
+    } else {
+      query += " filter(LANG(?sLabel) = 'ja') ";
+      query += " filter(LANG(?oLabel) = 'ja') ";
+    }
+    query += " optional {?s dbo:layingDown ?date . } ";
+    query += " optional {?s rdf:type ?class . } ";
+    query += " } ";
+    query += " order by ?date ";
+
+    $.ajax({
+      type : "POST",
+      url : endpoint,
+      data : {
+        query : query,
+        format : "json"
+      },
+      success : function(data) {
+
+        $("#loading").hide();
+
+        var result = data.results.bindings;
+
+        var obj2 = new Object();
+        obj2.id = topUri;
+        obj2.parent = "#";
+
+        if(en_flg){
+          obj2.text = "Warship";
+        } else {
+          obj2.text = "軍艦";
+        }
+
+        //obj2.text = "#";
+
+        obj2.icon = "fas fa-folder";
+        var state = new Object();
+        state.opened = true;
+        obj2.state = state;
+
+        data2.push(obj2);
+
+        for(var i = 0; i < result.length; i++){
+          var obj = result[i];
+
+          var uri = obj.s.value;
+
+          result2[uri] = obj;
+
+          var parentUri = obj.o.value;
+
+          if(!children[parentUri]){
+            children[parentUri] = new Array();
+          }
+
+          var date = "9999-99-99";
+          if(obj.date){
+            //date = obj.date.value;
+          } else {
+            obj.date = new Object();
+            obj.date.value = date;
+          }
+
+          if(children[parentUri].indexOf(uri) == -1){
+            children[parentUri].push(uri);
+          }
+
+
+        }
+
+
+
+
+        for(var key in children){
+
+          var array = children[key];
+
+          var date = "9999-99-99";
+
+          for(var i = 0; i < array.length; i++){
+            var obj = result2[array[i]];
+            if(obj.date.value < date){
+              date = obj.date.value;
+            }
+          }
+
+          if(result2[key] != null){//Warship
+            result2[key].date.value = date;
+          }
+
+
+        }
+
+        for(var key in children){
+
+          var array = children[key];
+
+          var date = "9999-99-99";
+
+          for(var i = 0; i < array.length; i++){
+            var obj = result2[array[i]];
+            if(obj.date.value < date){
+              date = obj.date.value;
+            }
+          }
+
+          if(result2[key] != null){//Warship
+            result2[key].date.value = date;
+          }
+
+
+        }
+
+        for(var key in children){
+          var array = children[key];
+          var array2 = new Array();
+          for(var i = 0; i < array.length; i++){
+            var childUri = array[i];
+            var obj = result2[childUri];
+            array2.push(obj.date.value+"|"+childUri);
+          }
+          children[key] = array2;
+        }
+
+        createJson(topUri);
+
+        // data format demo
+        $('#frmt').jstree({
+          'core' : {
+            'data' : data2
+          },
+          "plugins" : [ "search" ]
+        });
+
+        $('#frmt').on("changed.jstree", function(e, data) {
+
+          var selectedUri = data.selected[0];
+          var label = data.node.text;
+          $("#label").val(label);
+          $("#link").attr("href", "./ship_detail.html?resourceUri="+selectedUri);
+
+        });
+
+        root = new Object();
+        if(en_flg){
+          root.name = "Warship";
+        } else {
+          root.name = "軍艦";
+        }
+
+        createJson2(topUri, root);
+
+        root.x0 = h / 2;
+        root.y0 = 0;
+
+        function toggleAll(d) {
+          if (d.children) {
+            d.children.forEach(toggleAll);
+            toggle(d);
+          }
+        }
+
+        root.children.forEach(toggleAll);
+
+        update(root);
+
+      },
+      error : function(data) {
+        alert(data.statusText);
+      }
+    });
+  }
+
+  function createJson(parentUri, flg){
+
+
+
+    var array = children[parentUri];
+
+    if(array == null){
+      return;
+    }
+
+    array.sort(function(a,b){
+      if( a < b ) return -1;
+      if( a > b ) return 1;
+      return 0;
+    });
+
+    for(var i = 0; i < array.length; i++){
+      var childUri = array[i].split("|")[1];
+      var obj = result2[childUri];
+
+      var obj2 = new Object();
+
+
+
+      obj2.id = childUri;
+      obj2.parent = parentUri;//obj.o.value;
+      obj2.text = obj.sLabel.value;
+
+
+      obj2.icon = "fas fa-ship";
+
+      if(!obj.class){
+        obj2.icon = "fas fa-folder";
+      }/* else {
+        if(obj.date && obj.date.value != "9999-99-99"){
+        obj2.text += " "+obj.date.value;
+      }
+    }*/
+
+    var state = new Object();
+    if(obj2.id == "http://dbpedia.org/resource/Cruiser"){
+      state.opened = true;
+    }
+    if(obj.s.value == resourceUri){
+      state.selected = true;
+    };
+    obj2.state = state;
+
+    data2.push(obj2);
+
+    //createJson(childUri);
+    createJson(childUri);
+  }
+}
+
+function createJson2(parentUri, /*childTmpArray*/childTmpObj){
+
+
+
+  var array = children[parentUri];
+
+  if(array == null){
+    return;
+  }
+
+  var childTmpArray = new Array();
+  childTmpObj.children = childTmpArray;
+
+  array.sort(function(a,b){
+    if( a < b ) return -1;
+    if( a > b ) return 1;
+    return 0;
+  });
+
+  for(var i = 0; i < array.length; i++){
+    var childUri = array[i].split("|")[1];
+    var obj = result2[childUri];
+
+    var obj2 = new Object();
+
+    var obj3 = new Object();
+    obj3.name = obj.sLabel.value;
+    //obj3.children = new Array();
+    obj3.uri = childUri;
+    childTmpArray.push(obj3);
+
+    createJson2(childUri, obj3);
+  }
+}
+
+
+function createJson2_2(parentUri, childTmpArray){
+
+
+
+  var array = children[parentUri];
+
+  if(array == null){
+    return;
+  }
+
+  array.sort(function(a,b){
+    if( a < b ) return -1;
+    if( a > b ) return 1;
+    return 0;
+  });
+
+  for(var i = 0; i < array.length; i++){
+    var childUri = array[i].split("|")[1];
+    var obj = result2[childUri];
+
+    var obj2 = new Object();
+
+    var obj3 = new Object();
+    obj3.name = obj.sLabel.value;
+    obj3.children = new Array();
+    childTmpArray.push(obj3);
+
+    createJson2(childUri, obj3.children);
+  }
+}
+
+function update(source) {
+
+  if (typeof selectByTree == 'function') { selectByTree(source); }
+
+  var duration = d3.event && d3.event.altKey ? 5000 : 500;
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse();
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = vis.selectAll("g.node")
+  .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("svg:g")
+  .attr("class", "node")
+  .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+  .on("click", function(d) { toggle(d); update(d); });
+
+  nodeEnter.append("svg:circle")
+  .attr("r", 1e-6)
+  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("svg:text")
+  .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+  .attr("dy", ".35em")
+  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+  .text(function(d) { return d.name; })
+  .style("fill-opacity", 1e-6);
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+  .duration(duration)
+  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+  .attr("r", 4.5)
+  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+  .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+  .duration(duration)
+  .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+  .remove();
+
+  nodeExit.select("circle")
+  .attr("r", 1e-6);
+
+  nodeExit.select("text")
+  .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = vis.selectAll("path.link")
+  .data(tree.links(nodes), function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("svg:path", "g")
+  .attr("class", "link")
+  .attr("d", function(d) {
+    var o = {x: source.x0, y: source.y0};
+    return diagonal({source: o, target: o});
+  })
+  .transition()
+  .duration(duration)
+  .attr("d", diagonal);
+
+  // Transition links to their new position.
+  link.transition()
+  .duration(duration)
+  .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+  .duration(duration)
+  .attr("d", function(d) {
+    var o = {x: source.x, y: source.y};
+    return diagonal({source: o, target: o});
+  })
+  .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Toggle children.
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+//Tree選択時の処理
+function selectByTree(data) {
+  $("#label").val(data.name);
+  $("#link").attr("href", "./ship_detail.html?resourceUri="+data.uri);
+}
+</script>
+
+</body>
+</html>
