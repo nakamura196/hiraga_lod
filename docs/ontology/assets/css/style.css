@@ -1,0 +1,10 @@
+body {
+  background-color: #eee;
+  word-wrap : break-word;
+  overflow-wrap : break-word;
+}
+
+table.table a {
+  margin: 0;
+  color: #007bff !important;
+}

@@ -5,73 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>LOD Applications</title>
+  <script
+  src="//code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/previews/free-templates/half-page-image-carousel/css/style.min.css"/>
+
+
+  <script src="./assets/js/main.js"></script>
+
+  <script>asset('./');</script>
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="./">軍艦オントロジー</a>
-  </nav>
+  <script>header('./');</script>
 
-  <br/>
-  <br/>
+  <!--Carousel Wrapper-->
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 
-  <main role="main">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">軍艦オントロジー</h1>
-        <p>平賀譲デジタルアーカイブとDBpediaを用いたアプリケーション</p>
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+        <div class="view" style="background-image: url('./assets/images/home.png'); background-repeat: no-repeat; background-size: cover;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong>Warship Ontology</strong>
+              </h1>
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
       </div>
+      <!--/First slide-->
+
+      <!--Second slide-->
+      <div class="carousel-item">
+        <div class="view" style="background-image: url('https://lod-cloud.net/versions/2014-08-30/lod-cloud.png'); background-repeat: no-repeat; background-size: cover;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <!-- Content -->
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">
+                  <strong>Warship Ontology</strong>
+                </h1>
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/Second slide-->
+
+      <!--Third slide-->
+      <div class="carousel-item">
+        <div class="view" style="background-image: url('http://commons.wikimedia.org/wiki/Special:FilePath/Yamato_Trial_1941.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <!-- Content -->
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">
+                  <strong>Warship Ontology</strong>
+
+
+                </h1>
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/Third slide-->
+
     </div>
+    <!--/.Slides-->
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>軍艦一覧</h2>
-          <p>軍艦の一覧です。</p>
-          <p><a class="btn btn-secondary" href="list.html" role="button">View &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>軍艦系統図</h2>
-          <p>軍艦の系統図です。</p>
-          <p><a class="btn btn-secondary" href="tree.html" role="button">View &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>建造所マップ</h2>
-          <p>建造所のマップです。</p>
-          <p><a class="btn btn-secondary" href="map.html" role="button">View &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>軍艦史年表</h2>
-          <p>軍艦史の年表です。</p>
-          <p><a class="btn btn-secondary" href="timeline.html" role="button">View &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>階層検索</h2>
-          <p>軍艦の系統図を用いて平賀譲文書を検索します。</p>
-          <p><a class="btn btn-secondary" href="tree_search.html" role="button">View &raquo;</a></p>
-        </div>
-      </div>
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
 
-      <hr class="my-5">
+  </div>
+  <!--/.Carousel Wrapper-->
 
-    </div> <!-- /container -->
+  <div class="container my-5">
 
-  </main>
+    <p>This system is an application of Linked Open Data (LOD) on catalog data of Yuzuru Hiraga Digital Archive.</p>
 
+    <p>This will support multifaceted access to his collection through digital exhibition and warship ontology.</p>
 
+  </div>
 
-  <footer class="container">
-    <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
-  </footer>
+  <script>footer('./');</script>
 
 </body>
 </html>

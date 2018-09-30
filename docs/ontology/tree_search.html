@@ -541,20 +541,20 @@ function createJson(parentUri, flg){
       obj2.icon = "fas fa-folder";
     }
 
-  var state = new Object();
-  if(obj2.id == "http://dbpedia.org/resource/Cruiser"){
-    state.opened = true;
+    var state = new Object();
+    if(obj2.id == "http://dbpedia.org/resource/Cruiser"){
+      state.opened = true;
+    }
+    if(obj.s.value == resourceUri){
+      state.selected = true;
+    };
+    obj2.state = state;
+
+    data2.push(obj2);
+
+    //createJson(childUri);
+    createJson(childUri);
   }
-  if(obj.s.value == resourceUri){
-    state.selected = true;
-  };
-  obj2.state = state;
-
-  data2.push(obj2);
-
-  //createJson(childUri);
-  createJson(childUri);
-}
 }
 
 function search(resourceUri) {

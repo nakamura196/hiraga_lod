@@ -2,90 +2,63 @@
 <!doctype html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
-
-  <title>LOD Applications</title>
-  <style>
-  body{
-    word-wrap : break-word;
-    overflow-wrap : break-word;
-  }
-</style>
-</head>
-
-<body>
-
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="./">軍艦オントロジー</a>
-
-  </nav>
-
-  <br/>
-  <br/>
-
-  <main role="main">
-
-    <div class="container">
-
-      <h1 class="mb-5">軍艦一覧</h1>
-
-      <!-- Example row of columns -->
-      <p class="text-center mb-5" id="loading">Loading...</p>
-
-      <table class="table table-striped table-hover" id="table">
-        <thead id="thead">
-          <tr>
-            <th></th>
-            <th></th>
-            <th class="trn">艦名</th>
-            <th class="trn">艦種</th>
-            <th class="trn">起工日</th>
-            <th class="trn">進水日</th>
-            <th class="trn">就役日</th>
-            <th class="trn">竣工日</th>
-          </tr>
-        </thead>
-        <tbody id="resourceListBody">
-        </tbody>
-      </table>
-
-      <hr class="my-5">
-
-    </div> <!-- /container -->
-
-  </main>
-
-
-
-  <footer class="container">
-    <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
-  </footer>
-
 
   <script
   src="//code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script src="./assets/js/main.js"></script>
 
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script>asset('./');</script>
 
-  <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+
+<body>
+
+  <script>header('./');</script>
+
+
+  <div class="container my-5">
+
+    <h3 class="mb-5">List / 一覧 </h3>
+
+    <!-- Example row of columns -->
+    <p class="text-center mb-5" id="loading">Loading...</p>
+
+    <table class="table table-striped table-hover" id="table">
+      <thead id="thead">
+        <tr>
+          <th></th>
+          <th></th>
+          <th class="trn">Name / 艦名</th>
+          <th class="trn">Type / 艦種</th>
+          <th class="trn">Laid down / 起工日</th>
+          <th class="trn">Launched / 進水日</th>
+          <th class="trn">Completed / 就役日</th>
+          <th class="trn">Commissioned / 竣工日</th>
+        </tr>
+      </thead>
+      <tbody id="resourceListBody">
+      </tbody>
+    </table>
+
+  </div> <!-- /container -->
+
+
+  <script>footer('./');</script>
 
   <!-- Custom Theme JavaScript -->
   <script>
 
-  var en_flg = false;
-
   jQuery(document).ready(function() {
     jQuery.ajaxSetup({
-      cache : false
+      // cache : false
     });
 
     showMetaDataList();

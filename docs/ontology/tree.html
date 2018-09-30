@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-  <title>LOD Applications</title>
+  <script
+  src="//code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script src="./assets/js/main.js"></script>
+
+  <script>asset('./');</script>
+
   <style>
-  body{
-    word-wrap : break-word;
-    overflow-wrap : break-word;
-  }
   .node circle {
     cursor: pointer;
     fill: #fff;
@@ -38,52 +38,42 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="./">軍艦オントロジー</a>
+  <script>header('./');</script>
 
-  </nav>
+  <div class="container my-5">
 
-  <main role="main">
+    <h3 class="mb-5">Tree / 系統図</h3>
 
-    <div class="container mt-5">
+    <p class="text-center mb-5" id="loading">Loading...</p>
 
-      <h1 class="mb-5">軍艦系統図</h1>
+    <div class="form-inline mb-5">
+      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Selected：</label>
+      <input type="text" class="form-control my-1 mr-sm-2" readonly id="label" />
+      <a id="link" class="btn btn-primary my-1" target="_blank">View / 閲覧</a>
+    </div>
 
-      <p class="text-center mb-5" id="loading">Loading...</p>
-
-      <div class="form-inline mb-5">
-        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Selected</label>
-        <input type="text" class="form-control my-1 mr-sm-2" readonly id="label" />
-        <a id="link" class="btn btn-primary my-1" target="_blank"><span class="trn">閲覧</span> &raquo;</a>
+    <div class="card mb-5">
+      <div class="card-header">
+        Tree with jsTree
       </div>
-
-      <div class="card mb-5">
-        <div class="card-header">
-          Tree with jsTree
-        </div>
-        <div class="card-body">
-          <div id="frmt"></div>
-        </div>
+      <div class="card-body">
+        <div id="frmt"></div>
       </div>
+    </div>
 
-      <div class="card mb-5">
-        <div class="card-header">
-          Tree with D3.js
-        </div>
-        <div class="card-body">
-          <div id="classTree"></div>
-        </div>
+    <div class="card mb-5">
+      <div class="card-header">
+        Tree with D3.js
       </div>
+      <div class="card-body">
+        <div id="classTree"></div>
+      </div>
+    </div>
 
-      <hr class="my-5">
 
-    </div> <!-- /container -->
+  </div> <!-- /container -->
 
-  </main>
-
-  <footer class="container">
-    <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" /></a>&nbsp;&nbsp;<a href="https://researchmap.jp/nakamura.satoru/?lang=english">Satoru Nakamura</a></p>
-  </footer>
+  <script>footer('./');</script>
 
   <script
   src="//code.jquery.com/jquery-3.3.1.min.js"
